@@ -8,6 +8,10 @@ class ApplicationController < ActionController::API
 
     before_action :authorize
 
+    def index 
+        render json: {message: "Codearn API"}
+    end
+
     private
 
     def authorize 
