@@ -1,7 +1,7 @@
 import React,{ useState} from 'react'
 import SignUp from './SignUp'
 import ResetPassword from './ResetPassword'
-import '../css/LogIn.css'
+
 
 const LogIn = ({ setUser }) => {
 

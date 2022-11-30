@@ -1,8 +1,10 @@
 import React,{useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import LogIn from "./components/LogIn";
+import SignUp from "./components/SignUp";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
+import LandingPage from "./components/LandingPage";
 
 function App() {
 
@@ -20,14 +22,14 @@ function App() {
 
   }, []);
 
-  if (!user) return <LogIn setUser={setUser} />
-
 
   return (
     <div className="App">
-      <NavBar user={user} setUser={setUser} />
       <Routes>
-        <Route path="/" element={<Home user={user} setUser={setUser} />} />
+        <Route path="/" element={<LandingPage user={user} setUser={setUser} />} />
+        <Route path="/home" element={<Home user={user} setUser={setUser} />} />
+        <Route path="/login" element={<LogIn setUser={setUser} />} />
+        <Route path="/signup" element={<SignUp setUser={setUser} />} />
       </Routes>
 
     </div>

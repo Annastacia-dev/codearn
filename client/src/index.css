@@ -3,6 +3,8 @@
 :root{
   --poppins: 'Poppins', sans-serif;
   --rubik: 'Rubik', sans-serif;
+  --primary: #1b1744;
+  --box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 *{
@@ -15,5 +17,5 @@ body{
   font-family: var(--rubik);
   font-size: 16px;
   line-height: 1.5;
-  color: #333;
 }
+

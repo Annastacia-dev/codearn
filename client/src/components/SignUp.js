@@ -1,6 +1,4 @@
 import React,{ useState } from 'react'
-import LogIn from './LogIn'
-
 const SignUp = ({ setUser, setShowLogIn }) => {
 
     const [errors, setErrors] = useState([])
@@ -146,7 +144,7 @@ const SignUp = ({ setUser, setShowLogIn }) => {
                                 />
                             </div>
                             <div className="col-md-12 text-center ">
-                                <button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm">Get Started For Free</button>
+                                <button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm">Sign Up</button>
                             </div>
                                 {
                                     errors ? (

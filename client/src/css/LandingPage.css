@@ -1,0 +1,84 @@
+#page-top{
+    color:#fff;
+}
+
+hr.divider {
+    height: 0.2rem;
+    max-width: 3.25rem;
+    margin: 1.5rem auto;
+    background-color: white;
+    opacity: 1;
+}
+
+hr.divider-light {
+    background-color: white;
+}
+
+#mainNav{
+    box-shadow: 0 0 0 0 rgba(0,0,0,0);
+    transition: background-color 0.2s ease;
+}
+
+#mainNav .navbar-brand{
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link{
+    font-size: 1 rem;
+    color: #fff;
+}
+
+header.masthead {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    height:100vh;
+    /* Background image with a gradient overlay */
+    background: linear-gradient(rgba(78, 67, 118, 0.5), rgba(43, 88,118, 0.5)),
+    url("https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80") center center;
+    background-size: cover;
+    
+
+
+
+
+}
+
+h1 {
+    
+    font-size: 2.55rem;
+    font-weight: 700;
+}
+
+i{
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.login{
+    background-color: rgb(41, 48, 107);
+    border: none;
+}
+
+.login:hover{
+    background-color: rgb(41, 48, 107);
+    border: none;
+}
+
+.page-section{
+        padding: 10rem 0;
+        height:100vh;  
+        background-color: #fff; 
+        color: #000;
+        background: linear-gradient( rgba(43, 88,118,0.5),rgba(78, 67, 118,0.5)),
+        white;
+
+}
+
+
+   
+        
+    
+
+    
