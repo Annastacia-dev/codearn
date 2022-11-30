@@ -5,17 +5,17 @@ class UsersController < ApplicationController
     def create 
         @user = User.create!(user_params)
         session[:user_id] = @user.id
-        render json: @user
+        render json: @user, status: :created
     end
 
     def profile 
-        render json: @current_user
+        render json: @current_user, status: :ok
     end
 
     private 
 
     def user_params
-        params.permit(:first_name, :last_name, :email, :password, :password_confirmation)
+        params.permit(:first_name, :last_name, :username, :email, :password, :password_confirmation)
     end
 
 
