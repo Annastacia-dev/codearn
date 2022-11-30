@@ -38,9 +38,9 @@ module Codearn
 
     # Cookies And Sessions
 
-    config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore
-    config.action.dispatch.cookies_same_site_protection = :strict
+    # config.middleware.use ActionDispatch::Cookies
+    # config.middleware.use ActionDispatch::Session::CookieStore
+    # config.action.dispatch.cookies_same_site_protection = :strict
 
   end
 end
