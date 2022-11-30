@@ -11,4 +11,15 @@ class User < ApplicationRecord
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "must be a valid email address" }
  
     has_secure_password
+
+    before_create { generate_token(:auth_token) }
+
+
+
+    def generate_token(column)
+        begin
+            self[column] = SecureRandom.urlsafe_base64
+        end while User.exists?(column => self[column])
+    end
+
 end
