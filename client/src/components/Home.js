@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import NavBar from './NavBar'
+import TemplateCard from './TemplateCard'
 
-const Home = ({ user, setUser }) => {
-    console.log(user)
-
-
+const Home = ({ user, setUser, templates }) => {
 
   return (
     <>
         <NavBar user={user} setUser={setUser} />
-        <h1>
-        </h1>
+       {/* Cards Container */}
+        <div style={{marginTop: "8rem"}} className="container">
+          <div className="row">
+            <div className="col-lg-4 col-md-6 mb-4">
+              {
+                templates.map(template => {
+                  return <TemplateCard key={template.id} template={template} />
+                }
+                )
+              }
+
+              </div>
+            </div>
+          </div>
     </>
   )
 }

@@ -52,18 +52,18 @@ const NavBar = ({ user, setUser }) => {
                         </a>
                       <div className="collapse navbar-collapse" id="navbarResponsive">
                           <ul className="navbar-nav ms-auto my-2 my-lg-0">
-                              <li class="nav-item dropdown">
+                              <li className="nav-item dropdown">
                                   <a href="/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Stacks</a>
-                                  <div class="dropdown-menu">
+                                  <div className="dropdown-menu">
                                       <a href="/" className="dropdown-item">HTML</a>
                                       <a href="/" className="dropdown-item">React</a>
                                       <a href="/" className="dropdown-item">Vue</a>
                                       <a href="/"className="dropdown-item">Angular</a>
                                   </div>
                                 </li>
-                                <li class="nav-item dropdown">
-                                  <a href="/" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Templates</a>
-                                  <div class="dropdown-menu">
+                                <li className="nav-item dropdown">
+                                  <a href="/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Templates</a>
+                                  <div className="dropdown-menu">
                                       <a href="/"className="dropdown-item">Card</a>
                                       <a href="/" className="dropdown-item">Dashboard</a>
                                       <a href="/" className="dropdown-item">Headers</a>

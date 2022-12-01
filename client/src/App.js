@@ -9,6 +9,8 @@ import LandingPage from "./components/LandingPage";
 
 function App() {
 
+  // user
+
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -23,12 +25,26 @@ function App() {
 
   }, []);
 
+  // templates
+
+  const [templates, setTemplates] = useState([])
+
+  // fetch templates
+
+  useEffect(()=>{
+    fetch('/templates')
+      .then(res => res.json())
+      .then(templates => setTemplates(templates))
+  },[])
+
+
+
 
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<LandingPage user={user} setUser={setUser} />} />
-        <Route path="/home" element={<Home user={user} setUser={setUser} />} />
+        <Route path="/home" element={<Home templates={templates} user={user} setUser={setUser} />} />
         <Route path="/login" element={<LogIn setUser={setUser} />} />
         <Route path="/signup" element={<SignUp setUser={setUser} />} />
         <Route path="/reset_password" element={<ResetPassword />} />

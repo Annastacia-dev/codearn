@@ -44,14 +44,14 @@ const LandingPage = () => {
                                       <a href="/"className="dropdown-item">Angular</a>
                                   </div>
                                 </li>
-                                <li class="nav-item dropdown">
-                                  <a href="/" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Templates</a>
+                                <li className="nav-item dropdown">
+                                  <a href="/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Templates</a>
                                   <div class="dropdown-menu">
-                                      <a href="/"class="dropdown-item">Card</a>
-                                      <a href="/" class="dropdown-item">Dashboard</a>
-                                      <a href="/" class="dropdown-item">Headers</a>
-                                      <a href="/" class="dropdown-item">Landing Page</a>
-                                      <a href="/" class="dropdown-item">NavBar</a>
+                                      <a href="/"className="dropdown-item">Card</a>
+                                      <a href="/" className="dropdown-item">Dashboard</a>
+                                      <a href="/" className="dropdown-item">Headers</a>
+                                      <a href="/" className="dropdown-item">Landing Page</a>
+                                      <a href="/" className="dropdown-item">NavBar</a>
                                       
                                   </div>
                                 </li>
