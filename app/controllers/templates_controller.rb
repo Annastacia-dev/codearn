@@ -1,2 +1,3 @@
 class TemplatesController < ApplicationController
+    
 end
