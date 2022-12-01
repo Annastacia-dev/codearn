@@ -90,8 +90,8 @@ const LandingPage = () => {
                                   </h1>
                                   <hr className="divider" />
                               </div>
-                              <div className="col-lg-8 align-self-baseline">
-                                  <p className="text-white-75 mb-5">
+                              <div style={{marginTop: "1rem"}}  className="col-lg-8 align-self-baseline">
+                                  <p style={{lineHeight: "1.7"}} className="text-white-75 mb-5">
                                   Get your website up and running with the right look, feel and functionality. 
                                   <br />
                                   Our templates allow you to customize the look and feel of your site to meet the needs of your audience. 
@@ -112,26 +112,26 @@ const LandingPage = () => {
                               <div className="col-lg-8 text-center">
                                   <h2 className="text-centre mt-0">UI templates for developers</h2>
                                   <hr className="divider divider-light" />
-                                  <p className="text-75 mb-4">
+                                  <p style={{marginTop: "2rem"}}  className="text-75 mb-4">
                                   If you're a developer, you know how hard it can be to find the right UI template. We've got you covered!
 
                                   Our site has a ton of templates to choose from, along with step-by-step instructions on how to customize them. You can also upload your own templates and earn money!
 
                                   And if that wasn't enough, we'll even send you a free copy of our latest ebook on designing apps.
                                   </p>
-                                  <a className="btn btn-primary btn-xl" href="/signup">Sign Up</a>
+                                  <a style={{marginTop: "1rem"}}  className="btn btn-primary btn-xl" href="/signup">Sign Up</a>
                                   </div>
                                   </div>
                                   </div>
                                   </section>
 
                                 {/* services */}
-                                <section className="page-section services" id="services">
+                                <section style={{marginTop: "-7rem"}} className="page-section services" id="services">
                                     <div className="container px-4 px-lg-5">
                                     <div className="row gx-4 gx-lg-5 justify-content-center">
                                         <h2 style={{textAlign: "center"}} className="text-centre  mt-0">Our Services</h2>
                                         <hr className="divider divider-light" />
-                                        <div className="row gx-4 gx-lg-5">
+                                        <div style={{marginTop: "5rem"}}  className="row gx-4 gx-lg-5">
                                             <div className="col-lg-3 col-md-6 text-center">
                                                 <div className="mt-5">
                                                     <i className="fa-solid fa-file text"></i>
