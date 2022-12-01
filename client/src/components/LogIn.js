@@ -1,17 +1,19 @@
 import React,{ useState} from 'react'
 import SignUp from './SignUp'
-import ResetPassword from './ResetPassword'
+import { useNavigate } from 'react-router-dom'
 
 
 const LogIn = ({ setUser }) => {
 
+    const navigate = useNavigate()
+
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     const [errors, setErrors] = React.useState('')
-    const [rememberMe, setRememberMe] = useState(false)
+    const [rememberMe, setRememberMe] = useState(true)
 
     const [showLogin, setShowLogin] = useState(true)
-    const [showResetPassword, setShowResetPassword] = useState(true)
+
 
     // LogIn
     const handleSubmit = (e) => {
@@ -31,6 +33,8 @@ const LogIn = ({ setUser }) => {
             if (r.ok) {
                 r.json().then(user => {
                     setUser(user)
+                    navigate('/home')
+
                 })
             } else {
                 r.json().then(err => {
@@ -39,13 +43,6 @@ const LogIn = ({ setUser }) => {
             }
         })
     }
-
-    const handleResetPasswordClick = (e) => {
-        e.preventDefault()
-        setShowResetPassword(false)
-    }
-
-
 
 
   return (
@@ -118,25 +115,6 @@ const LogIn = ({ setUser }) => {
                                 onChange={(e) => setRememberMe(e.target.checked)}
                                 />
                             </div>
-
-                            {/* Forgot Password */}
-                            {/* Render Reset Passord Form on Clicking Forgot Password */}
-
-                            {
-                                showResetPassword ? (
-                                    <div className="col-md-12 text-center ">
-                                        <button
-                                        type="button"
-                                        className=" btn btn-block mybtn btn-primary tx-tfm"
-                                        onClick={handleResetPasswordClick}
-                                        >
-                                            Forgot Password?
-                                        </button>
-                                    </div>
-                                ) : (
-                                    <ResetPassword setShowResetPassword={setShowResetPassword} />
-                                )
-                            } 
                             <div className="col-md-12 text-center ">
                                 <button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
                             </div>

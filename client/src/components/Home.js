@@ -1,24 +1,17 @@
 import React from 'react'
+import NavBar from './NavBar'
 
 const Home = ({ user, setUser }) => {
-
-    const handleLogout = () => {
-        fetch('/logout', {
-            method: 'DELETE'
-        }).then(() => {
-            setUser(null)
-        })
-    }
-
+    console.log(user)
 
 
 
   return (
-    <div>
-        <h1>Home</h1>
-        <h2>{user.username}</h2> 
-        <button onClick={handleLogout}>Logout</button>
-    </div>
+    <>
+        <NavBar user={user} setUser={setUser} />
+        <h1>
+        </h1>
+    </>
   )
 }
 

@@ -1,7 +1,14 @@
 import React,{ useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+
+
 const SignUp = ({ setUser, setShowLogIn }) => {
 
+    const navigate = useNavigate()
+
     const [errors, setErrors] = useState([])
+    const [message, setMessage] = useState('')
 
 
     const [formData, setFormData] = useState({
@@ -33,6 +40,8 @@ const SignUp = ({ setUser, setShowLogIn }) => {
             if (r.ok) {
                 r.json().then(user => {
                     setUser(user)
+                    setMessage(user.message)
+                    navigate('/home')
                 })
             } else {
                 r.json().then(err => {
@@ -56,6 +65,7 @@ const SignUp = ({ setUser, setShowLogIn }) => {
                         <div className="logo mb-3">
                             <div className="col-md-12 text-center">
                                 <h1>Sign Up</h1>
+                                {message}
                             </div>
                         </div>
                         <form onSubmit={handleSubmit}>

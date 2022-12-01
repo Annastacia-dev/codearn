@@ -2,7 +2,8 @@ import React,{useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
-import NavBar from "./components/NavBar";
+import ResetPassword from "./components/ResetPassword";
+import NewPassword from "./components/NewPassword";
 import Home from "./components/Home";
 import LandingPage from "./components/LandingPage";
 
@@ -30,6 +31,8 @@ function App() {
         <Route path="/home" element={<Home user={user} setUser={setUser} />} />
         <Route path="/login" element={<LogIn setUser={setUser} />} />
         <Route path="/signup" element={<SignUp setUser={setUser} />} />
+        <Route path="/reset_password" element={<ResetPassword />} />
+        <Route path="/new_password" element={<NewPassword />} />
       </Routes>
 
     </div>

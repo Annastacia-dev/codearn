@@ -3,7 +3,7 @@
 :root{
   --poppins: 'Poppins', sans-serif;
   --rubik: 'Rubik', sans-serif;
-  --primary: #1b1744;
+  --primary: rgb(41, 48, 107);
   --box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 

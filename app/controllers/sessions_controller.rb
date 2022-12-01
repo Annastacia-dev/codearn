@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     skip_before_action :authorize, only: :create
 
     def create
-        user = User.find_by(email: params[:email]) || User.find_by(username: params[:username])
+        user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password])
             if (params[:remember_me])
             cookies.permanent[:auth_token] = user.auth_token

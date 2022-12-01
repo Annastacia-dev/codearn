@@ -1,0 +1,26 @@
+#mainNav.home.navbar{
+    background-color: var(--primary);
+}
+
+.logout{
+    color: red;
+    background-color: #fff;
+    border: none;
+}
+
+.logout:hover{
+    color: #fff;
+    background-color: red;
+    border: none;
+}
+
+.sell-content{
+    background:none;
+    border: none;
+}
+
+.sell-content:hover{
+    background:none;
+    border: none;
+    color: green;
+}

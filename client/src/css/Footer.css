@@ -1,0 +1,32 @@
+footer{
+    height: 100vh;
+    background: linear-gradient( rgba(43, 88,118, 0.5),rgba(78, 67, 118, 0.5)),
+    var(--primary);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-links li{
+    list-style: none;
+}
+
+.footer-links a{
+    color: #fff;
+    text-decoration: none;
+}
+.social-links a{
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+.footer-text{
+    text-align: center;
+    font-size: larger;
+}
+
+
+
+
+

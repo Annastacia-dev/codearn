@@ -3,8 +3,8 @@
 }
 
 hr.divider {
-    height: 0.2rem;
-    max-width: 3.25rem;
+    height: 0.1rem;
+    max-width: 12.25rem;
     margin: 1.5rem auto;
     background-color: white;
     opacity: 1;
@@ -15,8 +15,11 @@ hr.divider-light {
 }
 
 #mainNav{
-    box-shadow: 0 0 0 0 rgba(0,0,0,0);
-    transition: background-color 0.2s ease;
+    /* boxshadow */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    /* background */
+    background-color: rgba(0,0,0,0.1);
+    transition: 0.2s ease;
 }
 
 #mainNav .navbar-brand{
@@ -37,11 +40,7 @@ header.masthead {
     /* Background image with a gradient overlay */
     background: linear-gradient(rgba(78, 67, 118, 0.5), rgba(43, 88,118, 0.5)),
     url("https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80") center center;
-    background-size: cover;
-    
-
-
-
+    background-size: cover
 
 }
 
@@ -57,24 +56,62 @@ i{
 }
 
 .login{
-    background-color: rgb(41, 48, 107);
+    background-color: var(--primary);
     border: none;
 }
 
 .login:hover{
-    background-color: rgb(41, 48, 107);
+    background-color: #fff;
+    color: var(--primary);
     border: none;
 }
-
 .page-section{
         padding: 10rem 0;
         height:100vh;  
-        background-color: #fff; 
-        color: #000;
+        color: #fff;
         background: linear-gradient( rgba(43, 88,118,0.5),rgba(78, 67, 118,0.5)),
-        white;
+        var(--primary);
 
 }
+
+.page-section h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.page-section p{
+    font-size: 1.25rem;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.btn.btn-primary.btn-xl{
+    padding: 1rem;
+    background-color: #fff;
+    color: var(--primary);
+    border: none;
+}
+
+.btn.btn-primary.btn-xl:hover{
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+}
+
+.page-section.services{
+    background: linear-gradient(rgba(78, 67, 118, 0.5), rgba(43, 88,118, 0.5)),
+    var(--primary);
+    
+}
+
+.page-section.services i{
+    color: #fff;
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+}
+
 
 
    
