@@ -6,6 +6,7 @@ const NavBar = ({ user, setUser }) => {
 
     const navigate = useNavigate()
 
+    // logout
     const handleLogOut = () => {
       fetch('/logout', {
           method: 'DELETE'
@@ -14,6 +15,14 @@ const NavBar = ({ user, setUser }) => {
           navigate('/')
       })
   }
+
+  // sell content
+
+  const handleSellContent = () => {
+    navigate('/sell_content')
+  }
+
+
 
   // render greeting depending on time of day
   const getGreeting = () => {
@@ -89,7 +98,10 @@ const NavBar = ({ user, setUser }) => {
                       <div className="collapse navbar-collapse" id="navbarResponsive">
                           <ul className="navbar-nav ms-auto my-2 my-lg-0">
                           <li className="nav-item">
-                                  <button className="btn btn-primary sell-content">Sell Content</button>
+                                  <button 
+                                  className="btn btn-primary sell-content"
+                                  onClick={handleSellContent}
+                                  >Sell Content</button>
                               </li>
                               <li className="nav-item">
                                   <button onClick={handleLogOut} className="btn btn-primary logout">Log Out</button>

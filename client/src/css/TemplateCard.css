@@ -5,3 +5,30 @@
 .card-footer span{
     margin-left: 2rem;
 }
+
+.template .card:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.template a{
+    text-decoration: none;
+    color: #000;   
+}
+
+.btn-outline-secondary{
+    border-color: rgb(223, 214, 214);
+    color: var(--primary);
+
+    border-left: none;
+}
+
+.btn-outline-secondary i{
+    font-size: 1.2rem;
+}
+   
+
+.btn-outline-secondary:hover{
+    background-color:var(--primary);
+    color: #fff;
+}

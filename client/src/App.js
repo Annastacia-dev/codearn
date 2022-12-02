@@ -7,6 +7,7 @@ import NewPassword from "./components/NewPassword";
 import Home from "./components/Home";
 import LandingPage from "./components/LandingPage";
 import SingleTemplate from "./components/SingleTemplate";
+import SellContent from "./components/SellContent";
 
 function App() {
 
@@ -30,15 +31,17 @@ function App() {
 
   const [templates, setTemplates] = useState([])
 
-  // fetch templates
+  // getTemplates asynchronously
+  
+  async function getTemplates() {
+    const response = await fetch('/templates')
+    const data = await response.json()
+    setTemplates(data)
+  }
 
-  useEffect(()=>{
-    fetch('/templates')
-      .then(res => res.json())
-      .then(templates => setTemplates(templates))
-  },[])
-
-
+useEffect(() => {
+  getTemplates()
+}, [])
 
 
   return (
@@ -51,6 +54,7 @@ function App() {
         <Route path="/reset_password" element={<ResetPassword />} />
         <Route path="/new_password" element={<NewPassword />} />
         <Route path="/templates/:id" element={<SingleTemplate templates={templates} user={user} setUser={setUser} />} />
+        <Route path="/sell_content" element={<SellContent user={user} setUser={setUser} />} />
       </Routes>
 
     </div>

@@ -24,3 +24,8 @@
     border: none;
     color: green;
 }
+
+.sell-content:active:focus{
+    background:none;
+    border: none;
+}
