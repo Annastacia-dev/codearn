@@ -45,7 +45,7 @@ const NavBar = ({ user, setUser }) => {
                             </div>
                           ) : (
                             <div className="greeting">
-                              <h4>{getGreeting()} Guest</h4>
+                              <h4>{getGreeting()}</h4>
                             </div>
                           )
                         }

@@ -6,6 +6,7 @@ import ResetPassword from "./components/ResetPassword";
 import NewPassword from "./components/NewPassword";
 import Home from "./components/Home";
 import LandingPage from "./components/LandingPage";
+import SingleTemplate from "./components/SingleTemplate";
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
         <Route path="/signup" element={<SignUp setUser={setUser} />} />
         <Route path="/reset_password" element={<ResetPassword />} />
         <Route path="/new_password" element={<NewPassword />} />
+        <Route path="/templates/:id" element={<SingleTemplate templates={templates} user={user} setUser={setUser} />} />
       </Routes>
 
     </div>

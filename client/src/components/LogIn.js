@@ -34,6 +34,7 @@ const LogIn = ({ setUser }) => {
                 r.json().then(user => {
                     setUser(user)
                     navigate('/home')
+                    window.location.reload()
 
                 })
             } else {
