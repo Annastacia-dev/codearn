@@ -19,3 +19,21 @@ body{
   line-height: 1.5;
 }
 
+.btn-primary{
+  background-color: var(--primary);
+  color: #fff; 
+  border: none;
+}
+
+.btn-primary:hover{
+  background-color: #fff;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.btn-primary:active:focus{
+  background-color: #fff;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+

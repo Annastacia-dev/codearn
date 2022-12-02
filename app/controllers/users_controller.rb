@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
     def create 
         @user = User.create!(user_params)
-        cookies[:auth_token] = user.auth_token
+        cookies[:auth_token] = @user.auth_token
         render json: @user, status: :created
     end
 

@@ -1,63 +1,52 @@
-import React,{ useState} from 'react'
-import SignUp from './SignUp'
+import React,{ useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-
-const LogIn = ({ setUser }) => {
+const SellerExistingAccount = ({ setUser }) => {
 
     const navigate = useNavigate()
 
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     const [errors, setErrors] = React.useState('')
-    const [rememberMe, setRememberMe] = useState(true)
 
-    const [showLogin, setShowLogin] = useState(true)
-
-
-    // LogIn
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        fetch('/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email,
-                password,
-                remember_me: rememberMe
-        })
-        })
-        .then(r => {
-            if (r.ok) {
-                r.json().then(user => {
-                    setUser(user)
-                    // navigate('/home')
-                    // window.location.reload()
-                    // if user is a seller navigate '/dashboard' else navigate '/home'
-                    if (user.seller) {
+        // LogIn
+        const handleSubmit = (e) => {
+            e.preventDefault()
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                    seller: true
+            })
+            })
+            .then(r => {
+                if (r.ok) {
+                    r.json().then(user => {
+                        setUser(user)
                         navigate('/dashboard')
-                    } else {
-                        navigate('/home')
-                    }
-                    window.location.reload()
+                        window.location.reload()
+    
+                    })
+                } else {
+                    r.json().then(err => {
+                        setErrors(err.errors)
+                    })
+                }
+            })
+        }
 
-                })
-            } else {
-                r.json().then(err => {
-                    setErrors(err.errors)
-                })
-            }
-        })
-    }
+        const handleSignUpAsSeller = () => {
+            navigate('/seller_new_account')
+        }
 
 
   return (
-    <>
-
-    {
-    showLogin ? (<div className="container">
+    <div>
+        <div className="container">
             <div className="row">
                 <div className="col-md-6 mx-auto">
                     <div className="myform form ">
@@ -113,33 +102,20 @@ const LogIn = ({ setUser }) => {
                                 }
 
                             </div>
-                            <div className="form-check">
-                                <input
-                                type="checkbox"
-                                name="rememberMe"
-                                id="rememberMe"
-                                className="form-check-input"
-                                checked={rememberMe}
-                                onChange={(e) => setRememberMe(e.target.checked)}
-                                />
-                            </div>
                             <div className="col-md-12 text-center ">
-                                <button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                                <button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm">Log In</button>
                             </div>
                             <div className="form-group">
                                 <p className="text-center">Don't have account? &nbsp;
-                                <button className=" btn btn-block mybtn btn-primary tx-tfm"  onClick={() => setShowLogin(false)}>Sign up here</button></p>
+                                <button className=" btn btn-block mybtn btn-primary tx-tfm"  onClick={handleSignUpAsSeller}>Sign up here</button></p>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        ) : <SignUp setUser={setUser} setShowLogIn={setShowLogin} />
-        }
-        
-    </>
+    </div>
   )
 }
 
-export default LogIn
+export default SellerExistingAccount

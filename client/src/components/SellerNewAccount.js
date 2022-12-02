@@ -1,9 +1,7 @@
 import React,{ useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-
-
-const SignUp = ({ setUser, setShowLogIn }) => {
+const SellerNewAccount = ({user, setUser}) => {
 
     const navigate = useNavigate()
 
@@ -17,7 +15,8 @@ const SignUp = ({ setUser, setShowLogIn }) => {
         username: '',
         email: '',
         password: '',
-        password_confirmation: ''
+        password_confirmation: '',
+        seller: true
     })
 
     const handleChange = (e) => {
@@ -41,7 +40,6 @@ const SignUp = ({ setUser, setShowLogIn }) => {
                 r.json().then(user => {
                     setUser(user)
                     setMessage(user.message)
-                    
                     navigate('/home')
                 })
             } else {
@@ -52,20 +50,24 @@ const SignUp = ({ setUser, setShowLogIn }) => {
         })
     }
 
+    const handleLogInAsSeller = () => {
+        navigate('/seller_existing_account')
+    }
+
+
 
 
 
   return (
     <>
-      
-    <div className="container">
+     <div className="container">
         <div className="row">
             <div className="col-md-6 mx-auto">
                 <div id="first">
                     <div className="myform form ">
                         <div className="logo mb-3">
                             <div className="col-md-12 text-center">
-                                <h1>Sign Up</h1>
+                                <h1>Become A Contributor</h1>
                                 {message}
                             </div>
                         </div>
@@ -160,7 +162,7 @@ const SignUp = ({ setUser, setShowLogIn }) => {
                                 {
                                     errors ? (
                                         errors.map( error => error ?
-                                                    <div className="alert alert-danger" role="alert">
+                                                    <div key={error} className="alert alert-danger" role="alert">
                                                     <p>{error}</p>
                                                     </div>
                                                     :
@@ -171,17 +173,11 @@ const SignUp = ({ setUser, setShowLogIn }) => {
                                     
                                 }
 
-                            <div className="col-md-12 text-center ">
-                                <p> Already have an account &nbsp;
-                                <button 
-                                type="submit" 
-                                className=" btn btn-block mybtn btn-primary tx-tfm"
-                                onClick={()=> {setShowLogIn(true)}}
-                                >
-                                    Login
-                                </button>
-                                </p>
+                            <div  div className="col-md-12 text-center ">
+                                Already have an account ? &nbsp;
+                                <button onClick={handleLogInAsSeller} type="submit" className=" btn btn-block mybtn btn-primary tx-tfm">Sign In</button>
                             </div>
+
 
                             <div className="col-md-12 ">
                                 <div className="login-or">
@@ -201,4 +197,4 @@ const SignUp = ({ setUser, setShowLogIn }) => {
   )
 }
 
-export default SignUp
+export default SellerNewAccount
