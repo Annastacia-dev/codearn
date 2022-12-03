@@ -36,22 +36,22 @@ const LandingPage = () => {
                                   <a href="#services" className="nav-link">Services</a>
                               </li>
                               <li class="nav-item dropdown">
-                                  <a href="/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Stacks</a>
+                                  <li href="/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Stacks</li>
                                   <div class="dropdown-menu">
-                                      <a href="/" className="dropdown-item">HTML</a>
-                                      <a href="/" className="dropdown-item">React</a>
-                                      <a href="/" className="dropdown-item">Vue</a>
-                                      <a href="/"className="dropdown-item">Angular</a>
+                                      <li href="/" className="dropdown-item">HTML</li>
+                                      <li href="/" className="dropdown-item">React</li>
+                                      <li href="/" className="dropdown-item">Vue</li>
+                                      <li href="/"className="dropdown-item">Angular</li>
                                   </div>
                                 </li>
                                 <li className="nav-item dropdown">
-                                  <a href="/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Templates</a>
+                                  <li href="/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Templates</li>
                                   <div class="dropdown-menu">
-                                      <a href="/"className="dropdown-item">Card</a>
-                                      <a href="/" className="dropdown-item">Dashboard</a>
-                                      <a href="/" className="dropdown-item">Headers</a>
-                                      <a href="/" className="dropdown-item">Landing Page</a>
-                                      <a href="/" className="dropdown-item">NavBar</a>
+                                      <li href="/"className="dropdown-item">Card</li>
+                                      <li href="/" className="dropdown-item">Dashboard</li>
+                                      <li href="/" className="dropdown-item">Headers</li>
+                                      <li href="/" className="dropdown-item">Landing Page</li>
+                                      <li href="/" className="dropdown-item">NavBar</li>
                                       
                                   </div>
                                 </li>
