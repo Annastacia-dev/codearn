@@ -1,8 +1,26 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../css/SellerDashboard.css'
 
 
 const SellerDashboard = ({ user, setUser }) => {
+
+    const navigate = useNavigate()
+
+    const createTemplate = () => {
+        navigate('/new_template')
+    }
+
+    // logout
+    const handleLogOut = () => {
+        fetch('/logout', {
+            method: 'DELETE'
+        }).then(() => {
+            setUser(null)
+            navigate('/')
+        })
+    }
+
   return (
     <>
         {/* responsive side bar */}
@@ -21,7 +39,7 @@ const SellerDashboard = ({ user, setUser }) => {
                     <a href="guidelines" className="list-group-item list-group-item-action bg-light p-3">Guidelines</a>
                     <a href="/payment" className="list-group-item list-group-item-action bg-light p-3">My Billing Information</a>
                     <a href="/user_view" className="list-group-item list-group-item-action bg-light p-3">User View</a>
-                    <a href="#!" className="list-group-item list-group-item-action bg-light p-3">Log Out</a>
+                    <a href="#!" onClick={handleLogOut} className="list-group-item list-group-item-action bg-light p-3">Log Out</a>
                 </div>
             </div>
             <div id="page-content-wrapper">
@@ -38,6 +56,7 @@ const SellerDashboard = ({ user, setUser }) => {
                     >
                         <span className="navbar-toggler-icon" />
                     </button>
+                    
                     </div>
                 </nav>
                
@@ -61,7 +80,10 @@ const SellerDashboard = ({ user, setUser }) => {
                                         user.templates.length === 0 ? (
                                             <>
                                             <p className="card-text">You have no templates yet.</p>
-                                            <button className="btn btn-light">Create a template</button>
+                                            <button 
+                                            className="btn btn-light"
+                                            onClick={createTemplate}
+                                            >Create a template</button>
                                             </>
                                         ) : (
                                             <>
@@ -76,67 +98,25 @@ const SellerDashboard = ({ user, setUser }) => {
                         </div>
                         <div className="col-md-3">
                         <div className="card text-white bg-primary mb-3" style={{maxWidth: '18rem'}}>
-                                <div className="card-header">Total templates</div>
+                                <div className="card-header">Total earnings</div>
                                 <div className="card-body">
-                                    <h5 className="card-title">{user.templates.length} templates</h5>
-                                    {
-                                        user.templates.length === 0 ? (
-                                            <>
-                                            <p className="card-text">You have no templates yet.</p>
-                                            <button className="btn btn-light">Create a template</button>
-                                            </>
-                                        ) : (
-                                            <>
-                                            <button className="btn btn-light">View templates</button>
-                                            </>
-                                        )
-
-                                    }
-
+                                    <h5 className="card-title">placeholder</h5>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-3">
                         <div className="card text-white bg-primary mb-3" style={{maxWidth: '18rem'}}>
-                                <div className="card-header">Total templates</div>
+                                <div className="card-header">Total downloads</div>
                                 <div className="card-body">
-                                    <h5 className="card-title">{user.templates.length} templates</h5>
-                                    {
-                                        user.templates.length === 0 ? (
-                                            <>
-                                            <p className="card-text">You have no templates yet.</p>
-                                            <button className="btn btn-light">Create a template</button>
-                                            </>
-                                        ) : (
-                                            <>
-                                            <button className="btn btn-light">View templates</button>
-                                            </>
-                                        )
-
-                                    }
-
+                                    <h5 className="card-title">placeholder</h5>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-3">
                         <div className="card text-white bg-primary mb-3" style={{maxWidth: '18rem'}}>
-                                <div className="card-header">Total templates</div>
+                                <div className="card-header">Total reviews</div>
                                 <div className="card-body">
-                                    <h5 className="card-title">{user.templates.length} templates</h5>
-                                    {
-                                        user.templates.length === 0 ? (
-                                            <>
-                                            <p className="card-text">You have no templates yet.</p>
-                                            <button className="btn btn-light">Create a template</button>
-                                            </>
-                                        ) : (
-                                            <>
-                                            <button className="btn btn-light">View templates</button>
-                                            </>
-                                        )
-
-                                    }
-
+                                    <h5 className="card-title">placeholder</h5>
                                 </div>
                             </div>
                         </div>

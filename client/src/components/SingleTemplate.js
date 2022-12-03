@@ -5,13 +5,11 @@ const SingleTemplate = ({ user, templates}) => {
 
     const params = useParams()
 
-    const template = templates.find(template => template.id === parseInt(params.id))
+    const template = templates ? templates.find(template => template.id === parseInt(params.id)) : <h1>Loading...</h1>
 
     
-
-    console.log(template)
-
-    const {id, title, description, image_url, live_site, github_link, features, categories, technologies, premium, price } = template
+    
+    const {id, title, description, image_url, live_site, github_link, features, category, technologies, premium, price } = template
 
 
   return (
@@ -29,11 +27,20 @@ const SingleTemplate = ({ user, templates}) => {
                 <div className="col-md-6">
                   <h1>{title}</h1>
                   <p>{description}</p>
-                  <p>Price: {price}</p>
+                  <p>Price: ${price}</p>
+                  <p>Premium: 
+                    {
+                      premium ? (
+                        <span>Yes</span>
+                      ) : (
+                        <span>No</span>
+                      )
+                    }
+                  </p>
                   <p>Live Site: {live_site}</p>
                   <p>Github Link: {github_link}</p>
                   <p>Features: {features}</p>
-                  <p>Categories: {categories}</p>
+                  <p>Categories: {category}</p>
                   <p>Technologies: {technologies}</p>
                 </div>
               </div>

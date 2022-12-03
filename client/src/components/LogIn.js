@@ -33,14 +33,7 @@ const LogIn = ({ setUser }) => {
             if (r.ok) {
                 r.json().then(user => {
                     setUser(user)
-                    // navigate('/home')
-                    // window.location.reload()
-                    // if user is a seller navigate '/dashboard' else navigate '/home'
-                    if (user.seller) {
-                        navigate('/dashboard')
-                    } else {
-                        navigate('/home')
-                    }
+                   user ? user.seller ? navigate('/dashboard') : navigate('/home') : navigate('/')
                     window.location.reload()
 
                 })

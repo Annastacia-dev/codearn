@@ -13,7 +13,7 @@ class User < ApplicationRecord
     has_many :templates, dependent: :destroy
 
     # if user is a seller, validate presence of phone number
-    validates :phone_number, presence: true, if: :seller?
+    # validates :phone_number, presence: true, if: :seller?
 
 
  

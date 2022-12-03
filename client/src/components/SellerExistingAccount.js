@@ -1,7 +1,7 @@
-import React,{ useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const SellerExistingAccount = ({ setUser }) => {
+const SellerExistingAccount = ({ user, setUser }) => {
 
     const navigate = useNavigate()
 
@@ -12,8 +12,8 @@ const SellerExistingAccount = ({ setUser }) => {
         // LogIn
         const handleSubmit = (e) => {
             e.preventDefault()
-            fetch('/login', {
-                method: 'POST',
+            fetch(`/profile`, {
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
                 },

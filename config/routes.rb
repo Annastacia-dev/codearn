@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/profile", to: "users#profile"
+  patch "/profile", to: "users#update"
 
   resources :password_resets, only: [:create, :update]
 

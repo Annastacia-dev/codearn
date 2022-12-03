@@ -11,6 +11,8 @@ import SellContent from "./components/SellContent";
 import SellerExistingAccount from "./components/SellerExistingAccount";
 import SellerNewAccount from "./components/SellerNewAccount";
 import SellerDashboard from "./components/SellerDashboard";
+import UserView from "./components/UserView";
+import NewTemplate from "./components/NewTemplate";
 
 function App() {
 
@@ -70,6 +72,8 @@ useEffect(() => {
         <Route path="/sell_content" element={<SellContent user={user} setUser={setUser} />} />
         <Route path="/seller_existing_account" element={<SellerExistingAccount user={user} setUser={setUser} />} />
         <Route path="/seller_new_account" element={<SellerNewAccount user={user} setUser={setUser} />} />
+        <Route path="/user_view" element={<UserView templates={templates} user={user} setUser={setUser} />} />
+        <Route path="/new_template" element={<NewTemplate user={user} setUser={setUser} />} />
       </Routes>
 
     </div>
