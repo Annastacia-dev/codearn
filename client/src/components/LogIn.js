@@ -99,7 +99,7 @@ function notify(){
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Email address</label>
                                 <input 
-                                type="text" 
+                                type="email" 
                                 name="email"  
                                 className="form-control" 
                                 id="email" 
@@ -113,7 +113,7 @@ function notify(){
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Password</label>
                                 <input 
-                                type="text" 
+                                type="password" 
                                 name="password" 
                                 id="password"  
                                 className="form-control" 

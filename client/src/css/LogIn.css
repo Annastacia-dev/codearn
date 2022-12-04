@@ -10,11 +10,19 @@
     border-radius: 5px;
 }
 
-.log-in form input[type="text"]{
+.log-in form input[type="email"]{
     width: 90%;
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+}
+
+.log-in form input[type="password"]{
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--primary);
     border-radius: 5px;
 }
 

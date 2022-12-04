@@ -54,14 +54,14 @@ useEffect(() => {
     <div className="App">
       <Routes>
         <Route path="/" element={<LandingPage user={user} setUser={setUser} />} />
-        < Route path="/home" element={<Home templates={templates} user={user} setUser={setUser} />} />
+        <Route path="/home" element={<Home templates={templates} user={user} setUser={setUser} />} />
         <Route path="/dashboard" element={<SellerDashboard templates={templates} user={user} setUser={setUser} />} />
         <Route path="/login" element={<LogIn setUser={setUser} />} />
         <Route path="/signup" element={<SignUp setUser={setUser} />} />
         <Route path="/reset_password" element={<ResetPassword />} />
         <Route path="/new_password" element={<NewPassword />} />
         <Route path="/templates/:id" element={<SingleTemplate templates={templates} user={user} setUser={setUser} />} />
-        <Route path="/sell_content" element={<SellContent user={user} setUser={setUser} />} />
+        <Route path="/sell_content" element={<SellContent user={user}/>} />
         <Route path="/seller_existing_account" element={<SellerExistingAccount user={user} setUser={setUser} />} />
         <Route path="/seller_new_account" element={<SellerNewAccount user={user} setUser={setUser} />} />
         <Route path="/user_view" element={<UserView templates={templates} user={user} setUser={setUser} />} />

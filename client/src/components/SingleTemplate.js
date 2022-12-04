@@ -1,7 +1,15 @@
 import React,{ useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
-const SingleTemplate = ({}) => {
+const SingleTemplate = (user) => {
+
+  const [currentUser,setCurrentUser] = useState(user.user)
+
+  useEffect(() => {
+    setCurrentUser(user.user)
+  },[user.user])
+
+  console.log(currentUser)
 
     const params = useParams()
 
@@ -19,7 +27,7 @@ const SingleTemplate = ({}) => {
     fetchTemplate()
   }, [params.id])
 
- const {id, title, description, image_url, live_site, github_link, features, category, technologies, premium, user } = template
+ const {id, title, description, image_url, live_site, github_link, features, category, technologies, premium} = template
 
 
   return (
@@ -45,17 +53,30 @@ const SingleTemplate = ({}) => {
                     }
                   </p>
                   <p>Live Site: {live_site}</p>
-                  <p>Github Link: {github_link}</p>
+                  <p>
+                    {/* Show github link if user is premium */}
+                    {
+                      currentUser.premium ? (
+                        <a href={github_link}>Github Link</a>
+                      ) : (
+                        template.user.id === currentUser.id ? (
+                          <a href={github_link}>Github Link</a>
+                        ) : (
+                          <span>Not available</span>
+                        )
+                      )
+                    }
+                  </p>
                   <p>Features: {features}</p>
                   <p>Categories: {category}</p>
                   <p>Technologies: {technologies}</p>
                   <p>
                     {
-                      user ? (
-                        user.username === "admin" ? (
+                      template.user ? (
+                        template.user.username === "admin" ? (
                           <span>Created by: Codearn</span>
                         ) : (
-                          <span>Created by: {user.username}</span>
+                          <span>Created by: {template.user.username}</span>
                         )
                       ) : (
                         null
