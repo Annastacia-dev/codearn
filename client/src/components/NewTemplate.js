@@ -43,29 +43,28 @@ const NewTemplate = ({user}) => {
         .then( r => {
             if (r.ok) {
                 r.json().then(template => {
-                    console.log(template)
+                    toast.success("You have successfully created a new template!",{
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored"
+                    })
+                    setTimeout(() => {
+                        navigate('/dashboard')
+                        window.location.reload()
+                    }
+                    , 3000)
                 })
             } else {
                 r.json().then(err => setErrors(err.errors))
             }
         })
-        .then ( () => {
-            notify()
-            navigate('/dashboard')
-            window.location.reload()
-        }
-        )
     }
 
-    const notify = () => toast.success("Template successfully created!", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        });
 
   return (
     <>
@@ -74,7 +73,18 @@ const NewTemplate = ({user}) => {
         <div className="text-center">
         <i className="fa-brands fa-centercode"></i>
         <h4 style={{display:"inline-block"}}>Codearn</h4> 
-        < ToastContainer />
+        < ToastContainer
+            position="top-center"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme='colored'
+         />
         </div>
         <div className="row">
             <div className="col-md-6 mx-auto">

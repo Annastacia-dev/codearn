@@ -39,6 +39,7 @@ const SignUp = ({ setUser, setShowLogIn }) => {
                 r.json().then(user => {
                     setUser(user)
                     user.seller ? navigate('/dashboard') : navigate('/home')
+                    window.location.reload()
                     
                 })
             } else {

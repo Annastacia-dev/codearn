@@ -80,8 +80,9 @@ const SellerDashboard = ({ user, setUser }) => {
                             <div className="col-md-12">
                                 <div className="row">
                                     <div className="col-md-6">
-                                        <button onClick={createTemplate} className="btn new-template">
+                                        <button onClick={createTemplate} className="btn btn-primary new-template">
                                         <i className="fa-solid fa-square-plus"></i>
+                                        New Template
                                         </button>
                                         {
                                            user ? (

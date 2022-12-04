@@ -1,13 +1,26 @@
 import React from 'react'
+import { ToastContainer, toast } from 'react-toastify'
 
 const SellerTemplates = ({user, templates}) => {
 
     const sellerTemplates = user ? user.username === 'admin' ? templates : user.templates : null
-   
+
 
   return (
     <>
     <div className="container">
+        < ToastContainer
+            position="top-center"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+         />
         <div className="row">
             <div className="col-md-12">
                 <h1>
@@ -22,11 +35,32 @@ const SellerTemplates = ({user, templates}) => {
                 sellerTemplates ? (
                     sellerTemplates.map(template => {
 
-                        console.log(template)
+                        const handleDeleteTemplate = () => {
+                            fetch(`/templates/${template.id}`, {
+                                method: 'DELETE'
+                            })
+                            .then(r => r.json())
+                            .then(data => {
+                                toast.success(data.message,{
+                                    position: "top-center",
+                                    autoClose: 3000,
+                                    hideProgressBar: false,
+                                    closeOnClick: true,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: undefined,
+                                    theme: "colored"
+                                })
+                                setTimeout(() => {
+                                    window.location.reload()
+                                }, 1000)
+                            })
+                        }
+
 
 
                         return (
-                            <div className="col-md-3">
+                            <div key={template.id} className="col-md-3">
                                 <div className="card">
                                     <img src={template.image_url} alt={template.title} />
                                     <div className="card-body">
@@ -47,10 +81,36 @@ const SellerTemplates = ({user, templates}) => {
                                             user ? (
                                                 user.username === 'admin' ? (
                                                     <>
+                                                    <div 
+                                                    className="edit-button"
+                                                    style={{
+                                                        marginLeft: "160px"
+                                                    }}
+                                                    >
                                                     <br />
-                                                    <button className='btn'>Edit</button>
+                                                    <button className='btn'>
+                                                    <i 
+                                                    className="fa-solid fa-pen"
+                                                    style={{
+                                                        color: "blue",
+                                                        fontSize: "15px"
+                                                    }}
+                                                    ></i>
+                                                    </button>
                                                     <span />
-                                                    <button className='btn' >Delete</button>
+                                                    <button 
+                                                    className='btn'
+                                                    onClick={handleDeleteTemplate}
+                                                     >
+                                                    <i 
+                                                    className="fa-solid fa-trash"
+                                                    style={{
+                                                        color: "red",
+                                                        fontSize: "15px"
+                                                    }}
+                                                    ></i>
+                                                    </button>
+                                                    </div>
                                                     </>
                                                 ) : null
                                             ) : null

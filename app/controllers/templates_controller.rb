@@ -32,7 +32,7 @@ class TemplatesController < ApplicationController
     def destroy
         @template = Template.find(params[:id])
         @template.destroy
-        head :no_content
+        render json: { message: "Template deleted" }, status: :ok
     end
 
     private

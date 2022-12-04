@@ -36,10 +36,11 @@ const LogIn = ({ setUser }) => {
             if (r.ok) {
                 r.json().then(user => {
                     setUser(user)
+                    user.seller ? navigate('/dashboard') : navigate('/home')
                     setTimeout(() => {
                         notify()
-                    }, 5)
-                    user.seller ? navigate('/dashboard') : navigate('/home')
+                    }
+                    , 1000)
                 })
             } else {
                 r.json().then(err => setErrors(err.errors))
