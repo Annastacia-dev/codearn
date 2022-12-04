@@ -1,5 +1,7 @@
 import React,{ useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import '../css/SignUp.css'
+import Brand from './Brand'
 
 
 
@@ -56,103 +58,127 @@ const SignUp = ({ setUser, setShowLogIn }) => {
   return (
     <>
       
-    <div className="container">
+    <div className="sign-up container">
         <div className="row">
             <div className="col-md-6 mx-auto">
                 <div id="first">
                     <div className="myform form ">
                         <div className="logo mb-3">
                             <div className="col-md-12 text-center">
-                                <h1>Sign Up</h1>
+                                < Brand />
                             </div>
                         </div>
                         <form onSubmit={handleSubmit}>
-                            <div className="form-group">
-                                <label htmlFor="firstName">First Name</label>
-                                <input
-                                type="text"
-                                name="first_name"
-                                className="form-control"
-                                id="firstName"
-                                aria-describedby="emailHelp"
-                                placeholder="Enter First Name"
-                                autoComplete='first-name'
-                                value={formData.first_name}
-                                onChange={handleChange}
-                                />
+                            <div className="row">
+                                <div className="col">
+                                    <div className="form-group">
+                                        <label htmlFor="firstName">First Name</label>
+                                        <input
+                                        type="text"
+                                        name="first_name"
+                                        className="form-control"
+                                        id="firstName"
+                                        aria-describedby="emailHelp"
+                                        placeholder="Enter First Name"
+                                        autoComplete='first-name'
+                                        value={formData.first_name}
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="form-group">
+                                        <label htmlFor="lastName">Last Name</label>
+                                        <input
+                                        type="text"
+                                        name="last_name"
+                                        className="form-control"
+                                        id="lastName"
+                                        aria-describedby="emailHelp"
+                                        placeholder="Enter Last Name"
+                                        autoComplete='last-name'
+                                        value={formData.last_name}
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="lastName">Last Name</label>
-                                <input
-                                type="text"
-                                name="last_name"
-                                className="form-control"
-                                id="lastName"
-                                aria-describedby="emailHelp"
-                                placeholder="Enter Last Name"
-                                autoComplete='last-name'
-                                value={formData.last_name}
-                                onChange={handleChange}
-                                />
+                            <div className="row">
+                                <div className="col">
+                                        <div className="form-group">
+                                        <label htmlFor="username">Username</label>
+                                        <input
+                                        type="text"
+                                        name="username"
+                                        className="form-control"
+                                        id="username"
+                                        aria-describedby="emailHelp"
+                                        placeholder="Enter Username"
+                                        autoComplete='username'
+                                        value={formData.username}
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="form-group">
+                                        <label htmlFor="exampleInputEmail1">Email address</label>
+                                        <input
+                                        type="email"
+                                        name="email"
+                                        className="form-control"
+                                        id="email"
+                                        aria-describedby="emailHelp"
+                                        placeholder="Enter email"
+                                        autoComplete='email'
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="username">Username</label>
-                                <input
-                                type="text"
-                                name="username"
-                                className="form-control"
-                                id="username"
-                                aria-describedby="emailHelp"
-                                placeholder="Enter Username"
-                                autoComplete='username'
-                                value={formData.username}
-                                onChange={handleChange}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">Email address</label>
-                                <input
-                                type="email"
-                                name="email"
-                                className="form-control"
-                                id="email"
-                                aria-describedby="emailHelp"
-                                placeholder="Enter email"
-                                autoComplete='email'
-                                value={formData.email}
-                                onChange={handleChange}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="password">Password</label>
-                                <input
-                                type="password"
-                                name="password"
-                                id="password"
-                                className="form-control"
-                                aria-describedby="emailHelp"
-                                placeholder="Enter Password"
-                                autoComplete='new-password'
-                                value={formData.password}
-                                onChange={handleChange}
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="passwordConfirmation">Password Confirmation</label>
-                                <input
-                                type="password"
-                                name="password_confirmation"
-                                id="passwordConfirmation"
-                                className="form-control"
-                                aria-describedby="emailHelp"
-                                placeholder="Enter Password Confirmation"
-                                autoComplete='new-password'
-                                value={formData.password_confirmation}
-                                onChange={handleChange}
-                                />
+                            <div className="row">
+                                <div className="col">
+                                    <div className="form-group">
+                                        <label htmlFor="password">Password</label>
+                                        <input
+                                        type="password"
+                                        name="password"
+                                        id="password"
+                                        className="form-control"
+                                        aria-describedby="emailHelp"
+                                        placeholder="Enter Password"
+                                        autoComplete='new-password'
+                                        value={formData.password}
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="form-group">
+                                        <label htmlFor="passwordConfirmation">Password Confirmation</label>
+                                        <input
+                                        type="password"
+                                        name="password_confirmation"
+                                        id="passwordConfirmation"
+                                        className="form-control"
+                                        aria-describedby="emailHelp"
+                                        placeholder="Enter Password Confirmation"
+                                        autoComplete='new-password'
+                                        value={formData.password_confirmation}
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </div>
+                                </div>
                             </div>
                             <div className="col-md-12 text-center ">
-                                <button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm">Sign Up</button>
+                                <button type="submit" className=" sign-up btn btn-block mybtn btn-primary tx-tfm">Sign Up</button>
                             </div>
                                 {
                                     errors ? (
@@ -168,7 +194,7 @@ const SignUp = ({ setUser, setShowLogIn }) => {
                                     
                                 }
 
-                            <div className="col-md-12 text-center ">
+                            <div className=" log-in-sign-up col-md-12 text-center ">
                                 <p> Already have an account &nbsp;
                                 <button 
                                 type="submit" 

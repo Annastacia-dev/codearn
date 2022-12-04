@@ -1,0 +1,33 @@
+.log-in{
+    margin-top: 70px;
+}
+
+.log-in form{
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.log-in form input[type="text"]{
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-check.form-check-input{
+    margin-right: 5px;
+    color: var(--primary);
+}
+
+.log-in.log-in.btn{
+    margin-top: 15px;
+}
+
+.sign-up-here{
+    margin-top: 55px;
+}
+

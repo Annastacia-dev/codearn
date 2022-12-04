@@ -2,21 +2,20 @@ class User < ApplicationRecord
 
     validates :first_name, :username, :last_name, :email, :password, presence: true
 
-    validates :username, uniqueness: true
+    # first_name and last_name must be longer than 2 characters,
+    validates :first_name, :last_name, length: { minimum: 2 }
+
+    validates :username, uniqueness: true, length: { minimum: 2 }, format: { with: /\A[a-zA-Z0-9]+\z/, message: "only allows letters and numbers" }
     
-    validates :email, uniqueness: true
+    validates :email, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "only allows valid emails" }
    
     validates :password, format: { with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+\z/, message: "must contain one uppercase letter, one number, a special character, and be at least 6 characters long" }
-
-    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "must be a valid email address" }
 
     has_many :templates, dependent: :destroy
 
     # if user is a seller, validate presence of phone number
     # validates :phone_number, presence: true, if: :seller?
 
-
- 
     has_secure_password
 
     before_create { generate_token(:auth_token) }

@@ -1,0 +1,40 @@
+.sign-up{
+    margin-top: 40px;
+}
+
+.sign-up form{
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.sign-up form input[type="text"]{
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--primary);
+   border-radius: 5px;
+}
+
+.sign-up form input[type="password"]{
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+}
+
+.sign-up form input[type="email"]{
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+}
+
+.log-in-sign-up{
+    margin-top: 50px;
+}
+

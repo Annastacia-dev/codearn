@@ -3,6 +3,8 @@ import SignUp from './SignUp'
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import '../css/LogIn.css'
+import Brand from './Brand';
 
 
 const LogIn = ({ setUser }) => {
@@ -63,21 +65,17 @@ function notify(){
     })
 }
 
-
-
-
-
   return (
     <>
 
     {
-    showLogin ? (<div className="container">
+    showLogin ? (<div className="log-in container">
             <div className="row">
                 <div className="col-md-6 mx-auto">
                     <div className="myform form ">
                         <div className="logo mb-3">
                             <div className="col-md-12 text-center">
-                                <h1>Login</h1>
+                                < Brand />
                                 < ToastContainer
                                     position="top-center"
                                     autoClose={3000}
@@ -101,7 +99,7 @@ function notify(){
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Email address</label>
                                 <input 
-                                type="email" 
+                                type="text" 
                                 name="email"  
                                 className="form-control" 
                                 id="email" 
@@ -115,7 +113,7 @@ function notify(){
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Password</label>
                                 <input 
-                                type="password" 
+                                type="text" 
                                 name="password" 
                                 id="password"  
                                 className="form-control" 
@@ -146,15 +144,16 @@ function notify(){
                                 id="rememberMe"
                                 className="form-check-input"
                                 checked={rememberMe}
-                                onChange={(e) => setRememberMe(e.target.checked)}
+                                onChange={(e) => setRememberMe(!rememberMe)}
                                 />
+                                <label htmlFor="rememberMe" className="form-check-label">Remember Me</label>
                             </div>
                             <div className="col-md-12 text-center ">
-                                <button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                                <button type="submit" className="log-in btn btn-block mybtn btn-primary tx-tfm">Login</button>
                             </div>
-                            <div className="form-group">
+                            <div className="sign-up-here form-group">
                                 <p className="text-center">Don't have account? &nbsp;
-                                <button className=" btn btn-block mybtn btn-primary tx-tfm"  onClick={() => setShowLogin(false)}>Sign up here</button></p>
+                                <button className="btn btn-block mybtn btn-primary tx-tfm"  onClick={() => setShowLogin(false)}>Sign up here</button></p>
                             </div>
                         </form>
                     </div>
