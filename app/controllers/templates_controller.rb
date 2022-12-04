@@ -1,4 +1,5 @@
 class TemplatesController < ApplicationController
+    
 
     def index 
         @templates = Template.all
@@ -38,7 +39,7 @@ class TemplatesController < ApplicationController
     private
 
     def template_params
-        params.permit(:image_url, :title, :description, :live_site, :features, :category, :technologies, :premium, :github_link, :price, :user_id)
+        params.permit(:image_url, :title, :description, :live_site, :features, :category, :technologies, :premium, :github_link,:user_id)
     end
     
 

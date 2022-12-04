@@ -1,24 +1,32 @@
-import React from 'react'
+import React,{ useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
-const SingleTemplate = ({templates}) => {
+const SingleTemplate = ({}) => {
 
     const params = useParams()
 
-    const template = templates ? templates.find(template => template.id === parseInt(params.id)) : <h1>Loading...</h1>
+    const [template, setTemplate] = useState([])
 
-    
-    
-    const {id, title, description, image_url, live_site, github_link, features, category, technologies, premium, price, user } = template
+  
+  
+
+  useEffect(() => {
+    async function fetchTemplate(){
+      const response = await fetch(`/templates/${params.id}`)
+      const data = await response.json()
+      setTemplate(data)
+    }
+    fetchTemplate()
+  }, [params.id])
+
+ const {id, title, description, image_url, live_site, github_link, features, category, technologies, premium, user } = template
 
 
   return (
     <>
-        {/* Bootstrap two columns */}
         {
             template ?
             (
-              // Float image to the left
               <div key={id} className="container px-4 px-lg-5">
               <div className="row">
                 <div className="col-md-6">
@@ -27,7 +35,6 @@ const SingleTemplate = ({templates}) => {
                 <div className="col-md-6">
                   <h1>{title}</h1>
                   <p>{description}</p>
-                  <p>Price: ${price}</p>
                   <p>Premium: 
                     {
                       premium ? (
