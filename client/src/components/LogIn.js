@@ -1,6 +1,8 @@
 import React,{ useState} from 'react'
 import SignUp from './SignUp'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const LogIn = ({ setUser }) => {
@@ -29,21 +31,39 @@ const LogIn = ({ setUser }) => {
                 remember_me: rememberMe
         })
         })
-        .then(r => {
+        // if response is ok, set user to the user object, notify user that they are logged in, and redirect to home page
+        .then( r => {
             if (r.ok) {
                 r.json().then(user => {
                     setUser(user)
-                   user ? user.seller ? navigate('/dashboard') : navigate('/home') : navigate('/')
-                    window.location.reload()
-
+                    setTimeout(() => {
+                        notify()
+                    }, 5)
+                    user.seller ? navigate('/dashboard') : navigate('/home')
                 })
             } else {
-                r.json().then(err => {
-                    setErrors(err.errors)
-                })
+                r.json().then(err => setErrors(err.errors))
             }
-        })
+        }
+        )
+
     }
+
+function notify(){
+    toast.success("You have successfully logged in!",{
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored"
+    })
+}
+
+
+
 
 
   return (
@@ -57,6 +77,18 @@ const LogIn = ({ setUser }) => {
                         <div className="logo mb-3">
                             <div className="col-md-12 text-center">
                                 <h1>Login</h1>
+                                < ToastContainer
+                                    position="top-center"
+                                    autoClose={3000}
+                                    hideProgressBar={false}
+                                    newestOnTop={false}
+                                    closeOnClick
+                                    rtl={false}
+                                    pauseOnFocusLoss
+                                    draggable
+                                    pauseOnHover
+                                    theme="colored"
+                                 />
                             </div>
                         </div>
                         <form 

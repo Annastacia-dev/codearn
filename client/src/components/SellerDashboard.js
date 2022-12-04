@@ -3,12 +3,17 @@ import { useNavigate } from 'react-router-dom'
 import '../css/SellerDashboard.css'
 
 
+
 const SellerDashboard = ({ user, setUser }) => {
 
     const navigate = useNavigate()
 
     const createTemplate = () => {
         navigate('/new_template')
+    }
+
+    const viewTemplates = () => {
+        navigate('/seller_templates')
     }
 
     // logout
@@ -60,23 +65,51 @@ const SellerDashboard = ({ user, setUser }) => {
                     </div>
                 </nav>
                
-                <div className="container-fluid">
+                <div style={{position: "relative"}} className="container-fluid">
                     {/* Dashboard with user greeting and cards */}
 
                     <div className="row">
                         <div className="col-md-12">
                             <h1 className="mt-4">Dashboard</h1>
-                            <p className="lead">Welcome, {user.first_name}!</p>
+                            <p className="lead">Welcome, {
+                                user ? user.first_name : 'User'
+                            }!</p>
                         </div>
+
+                            {/* Settings button on the right */}
+                            <div className="col-md-12">
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <button onClick={createTemplate} className="btn new-template">
+                                        <i className="fa-solid fa-square-plus"></i>
+                                        </button>
+                                        {
+                                           user ? (
+                                            user.username === 'admin' ? (
+                                                <button onClick={viewTemplates} className="btn btn-primary"
+                                                style={{marginBottom: "20px"}}
+                                                >
+                                                <i className="fa-solid fa-eye"></i>
+                                                View All Templates
+                                                </button>
+                                            ) : null
+                                           ) : null
+                                        }
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                    {/* four cards in a row */}
                     <div className="row">
                         <div className="col-md-3">
-                            <div className="card text-white bg-primary mb-3" style={{maxWidth: '18rem'}}>
+                            <div className="card text-white bg-primary mb-3">
                                 <div className="card-header">Total templates</div>
                                 <div className="card-body">
-                                    <h5 className="card-title">{user.templates.length} templates</h5>
+                                    <h5 className="card-title">{
+                                        user ? user.templates.length : '0'
+                                    } templates</h5>
                                     {
+                                       user ? (
                                         user.templates.length === 0 ? (
                                             <>
                                             <p className="card-text">You have no templates yet.</p>
@@ -86,10 +119,18 @@ const SellerDashboard = ({ user, setUser }) => {
                                             >Create a template</button>
                                             </>
                                         ) : (
-                                            <>
-                                            <button className="btn btn-light">View templates</button>
-                                            </>
+                                            user.username === 'admin' ? (
+                                                null
+                                            ) :(
+                                                <button 
+                                                className="btn btn-light"
+                                                onClick={viewTemplates}
+                                                >View templates</button>  
+                                            )
                                         )
+                                       ) : (
+                                            null
+                                            )
 
                                     }
 
@@ -97,7 +138,7 @@ const SellerDashboard = ({ user, setUser }) => {
                             </div>
                         </div>
                         <div className="col-md-3">
-                        <div className="card text-white bg-primary mb-3" style={{maxWidth: '18rem'}}>
+                        <div className="card text-white bg-primary mb-3">
                                 <div className="card-header">Total earnings</div>
                                 <div className="card-body">
                                     <h5 className="card-title">placeholder</h5>
@@ -105,7 +146,7 @@ const SellerDashboard = ({ user, setUser }) => {
                             </div>
                         </div>
                         <div className="col-md-3">
-                        <div className="card text-white bg-primary mb-3" style={{maxWidth: '18rem'}}>
+                        <div className="card text-white bg-primary mb-3">
                                 <div className="card-header">Total downloads</div>
                                 <div className="card-body">
                                     <h5 className="card-title">placeholder</h5>
@@ -113,7 +154,7 @@ const SellerDashboard = ({ user, setUser }) => {
                             </div>
                         </div>
                         <div className="col-md-3">
-                        <div className="card text-white bg-primary mb-3" style={{maxWidth: '18rem'}}>
+                        <div className="card text-white bg-primary mb-3">
                                 <div className="card-header">Total reviews</div>
                                 <div className="card-body">
                                     <h5 className="card-title">placeholder</h5>

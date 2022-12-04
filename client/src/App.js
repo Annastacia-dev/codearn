@@ -13,6 +13,7 @@ import SellerNewAccount from "./components/SellerNewAccount";
 import SellerDashboard from "./components/SellerDashboard";
 import UserView from "./components/UserView";
 import NewTemplate from "./components/NewTemplate";
+import SellerTemplates from "./components/SellerTemplates";
 
 function App() {
 
@@ -53,17 +54,8 @@ useEffect(() => {
     <div className="App">
       <Routes>
         <Route path="/" element={<LandingPage user={user} setUser={setUser} />} />
-        {
-         user ? (
-          user.seller ? (
-            <Route path="/dashboard" element={<SellerDashboard user={user} setUser={setUser}/>} />
-          ):(
-            <Route path="/home" element={<Home user={user} setUser={setUser} templates={templates} />} />
-          )
-         ) : (
-          <Route path="/login" element={<LogIn user={user} setUser={setUser} />} />
-         )
-        }
+        < Route path="/home" element={<Home templates={templates} user={user} setUser={setUser} />} />
+        <Route path="/dashboard" element={<SellerDashboard templates={templates} user={user} setUser={setUser} />} />
         <Route path="/login" element={<LogIn setUser={setUser} />} />
         <Route path="/signup" element={<SignUp setUser={setUser} />} />
         <Route path="/reset_password" element={<ResetPassword />} />
@@ -74,6 +66,7 @@ useEffect(() => {
         <Route path="/seller_new_account" element={<SellerNewAccount user={user} setUser={setUser} />} />
         <Route path="/user_view" element={<UserView templates={templates} user={user} setUser={setUser} />} />
         <Route path="/new_template" element={<NewTemplate user={user} setUser={setUser} />} />
+        <Route path="/seller_templates" element={<SellerTemplates templates={templates} user={user} setUser={setUser} />} />
       </Routes>
 
     </div>

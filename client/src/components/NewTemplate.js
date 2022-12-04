@@ -44,13 +44,13 @@ const NewTemplate = ({user}) => {
             if (r.ok) {
                 r.json().then(template => {
                     console.log(template)
-                    notify()
                 })
             } else {
                 r.json().then(err => setErrors(err.errors))
             }
         })
         .then ( () => {
+            notify()
             navigate('/dashboard')
             window.location.reload()
         }
@@ -74,6 +74,7 @@ const NewTemplate = ({user}) => {
         <div className="text-center">
         <i className="fa-brands fa-centercode"></i>
         <h4 style={{display:"inline-block"}}>Codearn</h4> 
+        < ToastContainer />
         </div>
         <div className="row">
             <div className="col-md-6 mx-auto">
@@ -136,6 +137,7 @@ const NewTemplate = ({user}) => {
                                     
                                 }
             <button type="submit" className="btn btn-primary">Upload template</button>
+          
         </form>
         </div>
         </div>

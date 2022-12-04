@@ -8,8 +8,6 @@ const SignUp = ({ setUser, setShowLogIn }) => {
     const navigate = useNavigate()
 
     const [errors, setErrors] = useState([])
-    const [message, setMessage] = useState('')
-
 
     const [formData, setFormData] = useState({
         first_name: '',
@@ -40,9 +38,8 @@ const SignUp = ({ setUser, setShowLogIn }) => {
             if (r.ok) {
                 r.json().then(user => {
                     setUser(user)
-                    setMessage(user.message)
+                    user.seller ? navigate('/dashboard') : navigate('/home')
                     
-                    navigate('/home')
                 })
             } else {
                 r.json().then(err => {
@@ -66,7 +63,6 @@ const SignUp = ({ setUser, setShowLogIn }) => {
                         <div className="logo mb-3">
                             <div className="col-md-12 text-center">
                                 <h1>Sign Up</h1>
-                                {message}
                             </div>
                         </div>
                         <form onSubmit={handleSubmit}>

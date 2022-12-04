@@ -9,8 +9,15 @@ const TemplateCard = ({ template }) => {
     <>
      <div className="template col-lg-4 col-md-6 mb-4">
         <Link to={`/templates/${template.id}`}>
-            <div key={id} className="card h-100">
+            <div style={{position:"relative"}} key={id} className="card h-100">
                 <img className="card-img-top" src={image_url} alt={title} />
+                {
+                    template.premium ? (
+                        <div className="premium">
+                            <i className="fa-solid fa-crown"></i>
+                        </div>
+                    ) : null
+                }
                 <div className="card-body">
                     <h4 className="card-title">
                         {title}

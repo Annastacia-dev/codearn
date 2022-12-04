@@ -6,7 +6,7 @@ const Home = ({ user, setUser, templates }) => {
 
   const [search, setSearch] = useState('')
 
-  const filteredTemplates = templates.filter(template => {
+  const filteredTemplates =  templates.filter(template => {
     return template.title.toLowerCase().includes(search.toLowerCase()) || template.description.toLowerCase().includes(search.toLowerCase()) || template.category.toLowerCase().includes(search.toLowerCase()) || template.technologies.toLowerCase().includes(search.toLowerCase() )
   })
 

@@ -24,7 +24,7 @@ const LandingPage = () => {
                   <div className="container px-4 px-lg-5">
                     
                       <a href="#page-top" className="navbar-brand">
-                      <i class="fa-brands fa-centercode"></i>
+                      <i className="fa-brands fa-centercode"></i>
                         Codearn
                         </a>
                       <div className="collapse navbar-collapse" id="navbarResponsive">

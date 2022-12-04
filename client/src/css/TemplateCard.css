@@ -33,3 +33,14 @@
     color: #fff;
 }
 
+.premium i{
+    position: absolute;
+    /* gold color */
+    color: var(--primary);
+    background-color: rgba(228, 138, 138, 0.7);
+    padding: 0.5rem 0.5rem;
+    border-radius: 20%;
+    top: 30px;
+    left: 20px;
+}
+

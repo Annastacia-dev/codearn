@@ -1,10 +1,24 @@
 import React from 'react'
 import { useNavigate} from 'react-router-dom'
 import '../css/NavBar.css'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const NavBar = ({ user, setUser }) => {
 
     const navigate = useNavigate()
+
+    // notify
+  function notify() {
+    toast.warn("You have successfully logged out!", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+  })}
 
     // logout
     const handleLogOut = () => {
@@ -12,6 +26,9 @@ const NavBar = ({ user, setUser }) => {
           method: 'DELETE'
       }).then(() => {
           setUser(null)
+          setTimeout(() => {
+              notify()
+          }, 5)
           navigate('/')
       })
   }
@@ -45,7 +62,29 @@ const NavBar = ({ user, setUser }) => {
                 {/* NavBar */}
                 <nav id="mainNav" className="home navbar navbar-expand-lg navbar-light fixed-top py-3">
                   <div className="container px-4 px-lg-5">
-                    
+                  < ToastContainer
+                                  position="top-center"
+                                  autoClose={3000}
+                                  hideProgressBar={false}
+                                  newestOnTop={false}
+                                  closeOnClick
+                                  rtl={false}
+                                  pauseOnFocusLoss
+                                  draggable
+                                  pauseOnHover
+                                  theme='colored'
+                                   />
+                  <a href="#page-top">
+                      <i 
+                      className="fa-brands fa-centercode"
+                      style={{
+                        fontSize: '1.5rem',
+                        color: '#fff',
+                        marginRight: '30px'
+                      }}
+                      >
+                      </i>
+                        </a>
                       <a href="#page-top" className="navbar-brand">
                         {
                           user ? (
@@ -54,7 +93,7 @@ const NavBar = ({ user, setUser }) => {
                             </div>
                           ) : (
                             <div className="greeting">
-                              <h4>{getGreeting()}</h4>
+                              <h6>{getGreeting()}</h6>
                             </div>
                           )
                         }
@@ -62,22 +101,22 @@ const NavBar = ({ user, setUser }) => {
                       <div className="collapse navbar-collapse" id="navbarResponsive">
                           <ul className="navbar-nav ms-auto my-2 my-lg-0">
                               <li className="nav-item dropdown">
-                                  <a href="/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Stacks</a>
+                                  <li  className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Stacks</li>
                                   <div className="dropdown-menu">
-                                      <a href="/" className="dropdown-item">HTML</a>
-                                      <a href="/" className="dropdown-item">React</a>
-                                      <a href="/" className="dropdown-item">Vue</a>
-                                      <a href="/"className="dropdown-item">Angular</a>
+                                      <li   className="dropdown-item">HTML</li>
+                                      <li   className="dropdown-item">React</li>
+                                      <li   className="dropdown-item">Vue</li>
+                                      <li   className="dropdown-item">Angular</li>
                                   </div>
                                 </li>
                                 <li className="nav-item dropdown">
                                   <a href="/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Templates</a>
                                   <div className="dropdown-menu">
-                                      <a href="/"className="dropdown-item">Card</a>
-                                      <a href="/" className="dropdown-item">Dashboard</a>
-                                      <a href="/" className="dropdown-item">Headers</a>
-                                      <a href="/" className="dropdown-item">Landing Page</a>
-                                      <a href="/" className="dropdown-item">NavBar</a>
+                                      <li className="dropdown-item">Card</li>
+                                      <li  className="dropdown-item">Dashboard</li>
+                                      <li  className="dropdown-item">Headers</li>
+                                      <li  className="dropdown-item">Landing Page</li>
+                                      <li className="dropdown-item">NavBar</li>
                                       
                                   </div>
                                 </li>
@@ -105,6 +144,7 @@ const NavBar = ({ user, setUser }) => {
                               </li>
                               <li className="nav-item">
                                   <button onClick={handleLogOut} className="btn btn-primary logout">Log Out</button>
+                                 
                               </li>
                           </ul>
                       </div>
