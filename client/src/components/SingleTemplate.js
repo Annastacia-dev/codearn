@@ -31,7 +31,7 @@ const SingleTemplate = ({templates}) => {
     fetchTemplate()
   }, [params.id])
 
- const {id, title, description, image_url, live_site, github_link, features, category, technologies} = template
+ const {id, title, description, image_url, live_site, github_link, features, category, technologies, more_by_author} = template
 
 
   return (
@@ -122,11 +122,57 @@ const SingleTemplate = ({templates}) => {
                   )  
                 }
           </div>
-
-
-
-
           </div>
+
+          <div className="row">
+            <div className="col">
+              <h3>Same Technologies</h3>
+              {
+                // check if template has technologies, if it does, split the string into an array and filter the templates array for templates whose technologies match the current template's technologies and are not the current template
+                technologies ? (
+                  templates.filter(template => template.technologies.split(',').some(tech => technologies.split(',').includes(tech)) && template.id !== id).length > 0 ? (
+                    templates.filter(template => template.technologies.split(',').some(tech => technologies.split(',').includes(tech)) && template.id !== id).map(template => (
+                      <div key={template.id}>
+                        <a href={`/templates/${template.id}`}>{template.title}</a>
+                      </div>
+                    ))
+                  ) : (
+                    <div>
+                      No related templates
+                    </div>
+                  )
+                ) : (
+                  <div>
+                    No related templates
+                  </div>
+                )
+               
+              }
+              </div>
+          </div>
+
+          {/* More from the author */}
+          <div className="row">
+            <div className="col">
+              <h3>More from the author</h3>
+              {
+                more_by_author ? (
+                  // id not equal to current template id
+                  more_by_author.map(
+                    template => template.id !== id ? (
+                      <div key={template.id}>
+                        <a href={`/templates/${template.id}`}>{template.title}</a>
+                      </div>
+                    ) : null
+                  )
+                ) : (
+                  <div>
+                    No related templates
+                  </div>
+                )
+              }
+              </div>
+            </div>
 
 
 
