@@ -15,7 +15,6 @@ const NewTemplate = ({user}) => {
     const [liveSite, setLiveSite] = useState('')
     const [githubLink, setGithubLink] = useState('')
     const [features, setFeatures] = useState('')
-    const [price, setPrice] = useState(0)
     const [errors, setErrors] = useState([])
     
 
@@ -35,7 +34,6 @@ const NewTemplate = ({user}) => {
                 live_site: liveSite,
                 github_link: githubLink,
                 features,
-                price: user.username === 'admin' ? 0 : price,
                 premium: user.username === 'admin' ? false : true,
                 user_id: user.id
         })
@@ -127,12 +125,9 @@ const NewTemplate = ({user}) => {
             </div>
             <div className="form-group">
                 <label htmlFor="features">Features</label>
-                <input autoComplete='on' type="text" className="form-control" id="features" name="features" value={features} onChange={(e) => setFeatures(e.target.value)} />
+                <textarea autoComplete='on' type="text" className="form-control" id="features" name="features" value={features} onChange={(e) => setFeatures(e.target.value)} />
             </div>
-            <div className="form-group">
-                <label htmlFor="price">Price</label>
-                <input autoComplete='on' type="number" className="form-control" id="price" name="price" value={price} onChange={(e) => setPrice(e.target.value)} />
-            </div>
+            
             {
                                     errors ? (
                                         errors.map( error => error ?

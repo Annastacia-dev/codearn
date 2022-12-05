@@ -3,13 +3,19 @@ import { useNavigate } from 'react-router-dom'
 
 const Backbutton = () => {
     const navigate = useNavigate()
+
+    const handleClick = () => {
+        navigate(-1, { replace: true })   
+    }
+
+
   return (
     <>
         <button 
         className="btn btn-primary" 
-        onClick={() => navigate(-1)}
+        onClick={handleClick}
         style={{
-            marginTop: "-100px",
+            marginTop: "-50px",
         }}
         >Back</button>
     </>

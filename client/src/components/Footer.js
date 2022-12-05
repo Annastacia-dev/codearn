@@ -33,10 +33,10 @@ const Footer = () => {
                     <div className="col-lg-3 col-md-6 footer-links">
                         <h4>Socials</h4>
                         <div className="social-links mt-3">
-                            <a href="/" className="twitter"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="/" className="facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="/" className="instagram"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="/" className="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="/" className="twitter"><i className="fa-brands fa-twitter"></i></a>
+                            <a href="/" className="facebook"><i className="fa-brands fa-facebook-f"></i></a>
+                            <a href="/" className="instagram"><i className="fa-brands fa-instagram"></i></a>
+                            <a href="/" className="linkedin"><i className="fa-brands fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
