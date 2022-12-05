@@ -1,15 +1,19 @@
 import React,{ useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
-const SingleTemplate = (user) => {
+const SingleTemplate = ({templates}) => {
 
-  const [currentUser,setCurrentUser] = useState(user.user)
+  const [currentUser, setCurrentUser] = useState([])
+
+   async function getUser() {
+      const response = await fetch('/profile')
+      const data = await response.json()
+      setCurrentUser(data)
+    }
 
   useEffect(() => {
-    setCurrentUser(user.user)
-  },[user.user])
-
-  console.log(currentUser)
+    getUser();
+  }, [])
 
     const params = useParams()
 
@@ -27,72 +31,110 @@ const SingleTemplate = (user) => {
     fetchTemplate()
   }, [params.id])
 
- const {id, title, description, image_url, live_site, github_link, features, category, technologies, premium} = template
+ const {id, title, description, image_url, live_site, github_link, features, category, technologies} = template
 
 
   return (
     <>
-        {
-            template ?
-            (
-              <div key={id} className="container px-4 px-lg-5">
-              <div className="row">
-                <div className="col-md-6">
-                  <img src={image_url || "https://images.unsplash.com/photo-1621839673705-6617adf9e890?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"} alt={title} className="img-fluid" />
+    {
+      template ? (
+
+        <div key={id} className="container px-4 px-lg-5">
+          <div className="row gx-4 gx-lg-5">
+            <div className="col">
+              < img className="img-fluid mb-5" src={image_url} alt="..." />
+            </div>
+            <div className="col">
+                <h5>{title}</h5>
+                <p className="subheading">{description}</p>
+                <div className="col">
+                  <a href={live_site} target="_blank" rel="noreferrer" className="btn btn-primary">Live Site</a>
                 </div>
-                <div className="col-md-6">
-                  <h1>{title}</h1>
-                  <p>{description}</p>
-                  <p>Premium: 
-                    {
-                      premium ? (
-                        <span>Yes</span>
-                      ) : (
-                        <span>No</span>
-                      )
-                    }
-                  </p>
-                  <p>Live Site: {live_site}</p>
-                  <p>
-                    {/* Show github link if user is premium */}
-                    {
-                      currentUser.premium ? (
-                        <a href={github_link}>Github Link</a>
-                      ) : (
-                        template.user.id === currentUser.id ? (
-                          <a href={github_link}>Github Link</a>
-                        ) : (
-                          <span>Not available</span>
-                        )
-                      )
-                    }
-                  </p>
-                  <p>Features: {features}</p>
-                  <p>Categories: {category}</p>
-                  <p>Technologies: {technologies}</p>
-                  <p>
-                    {
+                <div className="col">
+                  {
+                    currentUser.premium ?(
+                      <a href={github_link} target="_blank" rel="noreferrer" className="btn btn-primary">View Code Source</a>
+                    ) :(
                       template.user ? (
-                        template.user.username === "admin" ? (
-                          <span>Created by: Codearn</span>
+                        template.user.id === currentUser.id ? (
+                          <a href={github_link} target="_blank" rel="noreferrer" className="btn btn-primary">View Code Source</a>
                         ) : (
-                          <span>Created by: {template.user.username}</span>
+                          <button type="button" className="btn btn-primary">Go Premium</button>
                         )
-                      ) : (
-                        null
-                      )
-                    }
-                  </p>
+                      ) :(null)
+                    )
+                  }
                 </div>
-              </div>
+
+                <div className="col">
+                  <span className='meta'>
+                  Category: {category}
+                  </span>
+                </div>
+                <div className="col">
+                  <span className='meta'>
+                  Technologies: {technologies}
+                  </span>
+                </div>
+                <span className="meta">
+                  Created by {
+                    template.user ?(
+                      template.user.id === currentUser.id ? (
+                        <a href="/profile">You</a>
+                      ) : (
+                        <a href={`/user/${template.user.id}`}>{template.user.username}</a>
+                      )
+                    ): "codearn"
+                  }
+                </span>
+            </div>
+          </div>
+          {/* Features and related */}
+
+          <div className="row gx-4 gx-lg-5">
+            <div className="col">
+              <h3>Features</h3>
+              <ul>
+                {
+                  features ?(
+                    features.split(',').map((feature,index) => (
+                      <li key={index}>{feature}</li>
+                    ))
+                  ) : "No features"
+                }
+                </ul>
               </div>
 
-            ) : (
-                <h1>Loading...</h1>
-            )
-        }
+              <div className="col">
+                <h3>Same Category</h3>
+                {
+                  // Templates whose category matches the current template's category and are not the current template return "No related templates" if there are no matches
+                  templates.filter(template => template.category === category && template.id !== id).length > 0 ? (
+                    templates.filter(template => template.category === category && template.id !== id).map(template => (
+                      <div key={template.id}>
+                        <a href={`/templates/${template.id}`}>{template.title}</a>
+                      </div>
+                    ))
+                  ) : (
+                    <div>
+                      No related templates
+                    </div>
+                  )  
+                }
+          </div>
 
-        
+
+
+
+          </div>
+
+
+
+        </div>
+      ) : <h1>Loading...</h1>
+    }
+   
+
 
     </>
   )

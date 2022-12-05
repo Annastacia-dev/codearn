@@ -19,19 +19,20 @@ function App() {
 
   // user
 
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState([]);
+
+  // get user asychronously
+
+  async function getUser() {
+    const response = await fetch("/profile");
+    const data = await response.json();
+    setUser(data);
+  }
 
   useEffect(() => {
-    // auto login
-    fetch ('/profile')
-    .then( r => {
-      if (r.ok) {
-        r.json().then(user => setUser(user))
-      }
-    })
-
-
+    getUser();
   }, []);
+
 
   // templates
 

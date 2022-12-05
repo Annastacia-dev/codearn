@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../css/SellerDashboard.css'
 
@@ -7,6 +7,18 @@ import '../css/SellerDashboard.css'
 const SellerDashboard = ({ user, setUser }) => {
 
     const navigate = useNavigate()
+
+    const [currentUser, setCurrentUser] = useState([])
+
+    async function getUser() {
+        const response = await fetch('/profile')
+        const data = await response.json()
+        setCurrentUser(data)
+    }
+
+    useEffect(() => {
+        getUser();
+    }, [])
 
     const createTemplate = () => {
         navigate('/new_template')
@@ -26,6 +38,7 @@ const SellerDashboard = ({ user, setUser }) => {
         })
     }
 
+   
   return (
     <>
         {/* responsive side bar */}
@@ -39,7 +52,7 @@ const SellerDashboard = ({ user, setUser }) => {
                     </div>
                 <div className="list-group list-group-flush">
                     <a href="/dashboard" className="list-group-item list-group-item-action bg-light p-3">Dashboard</a>
-                    <a href="mytemplates" className="list-group-item list-group-item-action bg-light p-3">My Templates</a>
+                    <a href="seller_templates" className="list-group-item list-group-item-action bg-light p-3">My Templates</a>
                     <a href="/profile" className="list-group-item list-group-item-action bg-light p-3">Profile</a>
                     <a href="guidelines" className="list-group-item list-group-item-action bg-light p-3">Guidelines</a>
                     <a href="/payment" className="list-group-item list-group-item-action bg-light p-3">My Billing Information</a>
@@ -72,7 +85,7 @@ const SellerDashboard = ({ user, setUser }) => {
                         <div className="col-md-12">
                             <h1 className="mt-4">Dashboard</h1>
                             <p className="lead">Welcome, {
-                                user ? user.first_name : 'User'
+                                currentUser ? currentUser.first_name : 'User'
                             }!</p>
                         </div>
 
@@ -85,8 +98,8 @@ const SellerDashboard = ({ user, setUser }) => {
                                         New Template
                                         </button>
                                         {
-                                           user ? (
-                                            user.username === 'admin' ? (
+                                           currentUser ? (
+                                            currentUser.username === 'admin' ? (
                                                 <button onClick={viewTemplates} className="btn btn-primary"
                                                 style={{marginBottom: "20px"}}
                                                 >
@@ -107,11 +120,12 @@ const SellerDashboard = ({ user, setUser }) => {
                                 <div className="card-header">Total templates</div>
                                 <div className="card-body">
                                     <h5 className="card-title">{
-                                        user ? user.templates.length : '0'
+                                        currentUser ? currentUser.templates ? currentUser.templates.length : 0 : 0
                                     } templates</h5>
                                     {
-                                       user ? (
-                                        user.templates.length === 0 ? (
+                                       currentUser ? (
+                                       currentUser.templates ? (
+                                        currentUser.templates.length === 0 ? (
                                             <>
                                             <p className="card-text">You have no templates yet.</p>
                                             <button 
@@ -120,7 +134,7 @@ const SellerDashboard = ({ user, setUser }) => {
                                             >Create a template</button>
                                             </>
                                         ) : (
-                                            user.username === 'admin' ? (
+                                            currentUser.username === 'admin' ? (
                                                 null
                                             ) :(
                                                 <button 
@@ -129,6 +143,8 @@ const SellerDashboard = ({ user, setUser }) => {
                                                 >View templates</button>  
                                             )
                                         )
+
+                                       ): 0
                                        ) : (
                                             null
                                             )
