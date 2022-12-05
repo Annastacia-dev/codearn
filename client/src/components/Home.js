@@ -38,8 +38,9 @@ const Home = ({ user, setUser, templates }) => {
           
           <div className="row">
               {
-                filteredTemplates  ?(
-                  filteredTemplates.map(template => {
+               
+                filteredTemplates ?(
+                  filteredTemplates.sort(() => Math.random() - 0.5).map(template => {
                     return <TemplateCard key={template.id} template={template} />
                   }
                   )

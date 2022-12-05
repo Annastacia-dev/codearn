@@ -1,6 +1,8 @@
 import React from 'react'
 import { useNavigate} from 'react-router-dom'
 import '../css/SellContent.css'
+import Backbutton from './Backbutton'
+
 
 const SellContent = () => {
 
@@ -21,6 +23,7 @@ const SellContent = () => {
     <div className='container sell-content px-4 px-lg-5'>
           <div className="row">
                  <div className="col-md-6">
+                    < Backbutton />
                     <div className="brand-logo">
                     <i className="fa-brands fa-centercode"></i>
                     <h4 style={{display:"inline-block"}}>Codearn</h4>

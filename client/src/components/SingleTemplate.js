@@ -39,7 +39,7 @@ const SingleTemplate = ({templates}) => {
     {
       template ? (
 
-        <div key={id} className="container px-4 px-lg-5">
+        <div key={id} className="sigle-template container px-4 px-lg-5">
           <div className="row gx-4 gx-lg-5">
             <div className="col">
               < img className="img-fluid mb-5" src={image_url} alt="..." />
@@ -68,12 +68,34 @@ const SingleTemplate = ({templates}) => {
 
                 <div className="col">
                   <span className='meta'>
-                  Category: {category}
+                  Category: {
+                    category ? (
+                      category.split(',').map((cat, index) => (
+                        (
+                         <ul>
+                        <li key={index}>{cat}</li>
+                        </ul>
+                        )
+                      ))
+                    ) : (null)
+                  }
                   </span>
                 </div>
                 <div className="col">
                   <span className='meta'>
-                  Technologies: {technologies}
+                  Technologies: {
+                    // split the string into an array, return a list
+                   technologies ? (
+                    technologies.split(',').map((tech, index) => {
+                      return (
+                        <ul>
+                      <li key={index}>{tech}</li>
+                       </ul>
+                      )
+                    }
+                    )
+                   ) : (null)
+                  }
                   </span>
                 </div>
                 <span className="meta">
