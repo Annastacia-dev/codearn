@@ -4,6 +4,7 @@ import '../css/SingleTemplate.css'
 import Brand from './Brand'
 import Backbutton from './Backbutton'
 import Footer from './Footer'
+import { makeRatingStars } from '../utils/stars'
 
 
 
@@ -58,6 +59,49 @@ const SingleTemplate = ({templates}) => {
               </div> 
              <div className="col">
             < img className="img-fluid mb-5" src={image_url} alt="..." />
+
+            {/* Show ratings and comments */}
+            <div className="row">
+              <div className="col">
+                <div className="row">
+                  <div className="col">
+                    <h5>Rating</h5>
+                    {
+                      template.reviews ? (
+                        template.reviews.map(review => (
+                          <div key={review.id}>
+                            <p>
+                              {
+                                makeRatingStars(review.rating)
+                              }
+                            </p>
+                          </div>
+                        ))
+                      ) : (
+                        <p>No ratings</p>
+                      )
+                    }
+
+                  </div>
+                  <div className="col">
+                    <h5>Comments</h5>
+                    {
+                      template.reviews ? (
+                        template.reviews.map(review => (
+                          <ul key={review.id}>
+                            <li>{review.comment}</li>
+                            </ul>
+                        ))
+                      ) : (
+                        <p>No comments</p>
+                      )
+                    }
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
+
             </div>
             </div>
             <div className="side-content col">
@@ -98,8 +142,8 @@ const SingleTemplate = ({templates}) => {
                     category ? (
                       category.split(',').map((cat, index) => (
                         (
-                         <ul>
-                        <li key={index}>{cat}</li>
+                         <ul key={index}>
+                        <li>{cat}</li>
                         </ul>
                         )
                       ))
@@ -116,8 +160,8 @@ const SingleTemplate = ({templates}) => {
                    technologies ? (
                     technologies.split(',').map((tech, index) => {
                       return (
-                        <ul>
-                      <li key={index}>{tech}</li>
+                        <ul key={index}>
+                      <li>{tech}</li>
                        </ul>
                       )
                     }

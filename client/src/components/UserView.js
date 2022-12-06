@@ -1,6 +1,7 @@
 import React,{  useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import TemplateCard from './TemplateCard'
+import Brand from './Brand'
 
 const UserView = ({ user, setUser, templates }) => {
 
@@ -35,11 +36,18 @@ const UserView = ({ user, setUser, templates }) => {
         <nav id="mainNav" className="home navbar navbar-expand-lg navbar-light fixed-top py-3">
                   <div className="container px-4 px-lg-5">
                     
-                      <a href="#page-top" className="navbar-brand">
+                      <a href="#page-top"  style={{textAlign: "center"}} className="navbar-brand">
                         {
                           user ? (
-                            <div className="greeting">
-                              <h4>{getGreeting()} {user.first_name}</h4>
+                            <div className="greeting"> 
+                                <h4>
+                                <i className="fa-brands fa-centercode"></i>
+                                  Codearn <span style={{marginLeft: "100px"}}>
+                                  {getGreeting()} {user.first_name}
+                                  </span>
+                                  
+                                  </h4>
+                              
                             </div>
                           ) : (
                             <div className="greeting">

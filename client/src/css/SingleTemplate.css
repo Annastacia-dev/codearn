@@ -37,12 +37,12 @@
 }
 
 /* for width below 480px */
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
     .features{
         margin-top: -550px;
     }
     .same-category{
         margin-top: -550px;
     }
-}
+} */
 

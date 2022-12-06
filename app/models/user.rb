@@ -12,6 +12,8 @@ class User < ApplicationRecord
     validates :password, format: { with: /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+\z/, message: "must contain one uppercase letter, one number, a special character, and be at least 6 characters long" }
 
     has_many :templates, dependent: :destroy
+    has_many :reviews, dependent: :destroy
+    
 
     # if user is a seller, validate presence of phone number
     # validates :phone_number, presence: true, if: :seller?

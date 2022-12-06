@@ -1,9 +1,17 @@
 import React from 'react'
 import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import Brand from './Brand'
+import Backbutton from './Backbutton'
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css'
 
 const SellerTemplates = ({user, templates}) => {
 
     const sellerTemplates = user ? user.username === 'admin' ? templates : user.templates : null
+
+
+
 
 
   return (
@@ -23,11 +31,19 @@ const SellerTemplates = ({user, templates}) => {
          />
         <div className="row">
             <div className="col-md-12">
-                <h1>
+                <h2 style={{textAlign: "center", marginTop :"20px"}}>
                 {
                     user ? user.username === 'admin' ? 'All Templates' : 'My Templates' : null
                 }
-                </h1>
+                </h2>
+                <div className="row">
+                <div className="col">
+                  <Backbutton/>
+                  <div className="col">
+                  <Brand/>
+                </div>
+                </div>   
+              </div> 
             </div>
         </div>
         <div className="row">
@@ -88,27 +104,19 @@ const SellerTemplates = ({user, templates}) => {
                                                     }}
                                                     >
                                                     <br />
-                                                    <button className='btn'>
-                                                    <i 
-                                                    className="fa-solid fa-pen"
-                                                    style={{
-                                                        color: "blue",
-                                                        fontSize: "15px"
-                                                    }}
-                                                    ></i>
-                                                    </button>
+
+                                                    < Popup trigger ={<button className='btn'>
+                                                    <i className="fa-solid fa-pen" style={{color: "blue",fontSize: "15px"}}></i>
+                                                    </button>} position = "right center">
+                                                        <div>
+                                                            Popup!
+                                                        </div>
+                                                    </Popup>
+                                                    
+
                                                     <span />
-                                                    <button 
-                                                    className='btn'
-                                                    onClick={handleDeleteTemplate}
-                                                     >
-                                                    <i 
-                                                    className="fa-solid fa-trash"
-                                                    style={{
-                                                        color: "red",
-                                                        fontSize: "15px"
-                                                    }}
-                                                    ></i>
+                                                    <button className='btn'onClick={handleDeleteTemplate}>
+                                                    <i className="fa-solid fa-trash"style={{color: "red",fontSize:"15px"}}></i>
                                                     </button>
                                                     </div>
                                                     </>
