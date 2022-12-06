@@ -16,7 +16,9 @@ const TemplateCard = ({ template }) => {
                         <div className="premium">
                             <i className="fa-solid fa-crown"></i>
                         </div>
-                    ) : null
+                    ) : (
+                        null
+                    )
                 }
                 <div className="card-body">
                     <h4 className="card-title">

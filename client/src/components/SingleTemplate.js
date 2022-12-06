@@ -5,6 +5,9 @@ import Brand from './Brand'
 import Backbutton from './Backbutton'
 import Footer from './Footer'
 import { makeRatingStars } from '../utils/stars'
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css'
+import NewReview from './NewReview'
 
 
 
@@ -59,6 +62,19 @@ const SingleTemplate = ({templates}) => {
               </div> 
              <div className="col">
             < img className="img-fluid mb-5" src={image_url} alt="..." />
+
+            {/* Button to add review and rating */}
+
+            <div className="row">
+              <div className="col">
+                <Popup trigger={<button className="btn btn-primary">Add Review</button>} 
+                modal
+                nested
+                >
+                  <NewReview template={template} currentUser={currentUser}/>
+                </Popup>
+              </div>
+            </div>
                     {/*User rating and comments  */}
                     {
                       template.reviews ? (

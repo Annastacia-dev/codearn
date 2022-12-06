@@ -74,22 +74,17 @@ const NavBar = ({ user, setUser }) => {
                                   pauseOnHover
                                   theme='colored'
                                    />
-                  <a href="#page-top">
-                      <i 
-                      className="fa-brands fa-centercode"
-                      style={{
-                        fontSize: '1.5rem',
-                        color: '#fff',
-                        marginRight: '30px'
-                      }}
-                      >
-                      </i>
-                        </a>
                       <a href="#page-top" className="navbar-brand">
                         {
                           user ? (
                             <div className="greeting">
-                              <h4>{getGreeting()} {user.first_name}</h4>
+                              <h4>
+                                <i className="fa-brands fa-centercode"></i>
+                                  Codearn <span style={{marginLeft: "100px"}}>
+                                  {getGreeting()} {user.first_name}
+                                  </span>
+                                  
+                                  </h4>
                             </div>
                           ) : (
                             <div className="greeting">
