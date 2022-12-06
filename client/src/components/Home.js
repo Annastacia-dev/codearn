@@ -13,10 +13,18 @@ const Home = ({ user, setUser, templates }) => {
 
   return (
     <>
-        <NavBar user={user} setUser={setUser} />
-        
+        <NavBar user={user} setUser={setUser} />  
         <div style={{marginTop: "8rem"}} className="container">
           <div className="row">
+          {
+            
+          user ? user.premium ? null :
+           <button className="btn btn-primary banner">
+            < i className="fas fa-star"></i>
+            Upgrade to premium to access all templates
+            </button> 
+           : null
+         }
             <div style={{margin: "auto", marginBottom:"2rem"}} className="col-md-6">
               <div className="input-group mb-3">
                 <input 

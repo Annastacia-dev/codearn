@@ -37,5 +37,12 @@ body{
   border: 1px solid var(--primary);
 }
 
+.banner{
+  background-color: rgba(255, 215, 0, 0.753);
+  color: var(--primary);
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+}
 
 

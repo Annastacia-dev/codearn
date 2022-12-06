@@ -40,3 +40,5 @@ gem 'bcrypt'
 
 gem 'foreman'
 
+gem 'rest-client'
+

@@ -60,8 +60,8 @@ const SellerTemplates = ({user, templates}) => {
 
 
                         return (
-                            <div key={template.id} className="col-md-3">
-                                <div className="card">
+                            <div key={template.id} className="col-lg-3 col-md-6 mb-4">
+                                <div className="card h-100">
                                     <img src={template.image_url} alt={template.title} />
                                     <div className="card-body">
                                         <h6 className="card-title">{template.title}</h6>
