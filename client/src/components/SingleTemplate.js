@@ -59,49 +59,24 @@ const SingleTemplate = ({templates}) => {
               </div> 
              <div className="col">
             < img className="img-fluid mb-5" src={image_url} alt="..." />
-
-            {/* Show ratings and comments */}
-            <div className="row">
-              <div className="col">
-                <div className="row">
-                  <div className="col">
-                    <h5>Rating</h5>
+                    {/*User rating and comments  */}
                     {
                       template.reviews ? (
-                        template.reviews.map(review => (
-                          <div key={review.id}>
-                            <p>
-                              {
-                                makeRatingStars(review.rating)
-                              }
-                            </p>
-                          </div>
-                        ))
-                      ) : (
-                        <p>No ratings</p>
-                      )
+                        template.reviews.map(review => {
+                          return (
+                            <div key={review.id} className="row">
+                                <p>
+                                  @{review.user.username}
+                                  <span>
+                                    {makeRatingStars(review.rating)}
+                                  </span>
+                                </p>
+                                <p>{review.comment}</p>
+                            </div>
+                          )
+                        })
+                      ) : (null)
                     }
-
-                  </div>
-                  <div className="col">
-                    <h5>Comments</h5>
-                    {
-                      template.reviews ? (
-                        template.reviews.map(review => (
-                          <ul key={review.id}>
-                            <li>{review.comment}</li>
-                            </ul>
-                        ))
-                      ) : (
-                        <p>No comments</p>
-                      )
-                    }
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-
-
             </div>
             </div>
             <div className="side-content col">

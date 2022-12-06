@@ -5,6 +5,7 @@ import Brand from './Brand'
 import Backbutton from './Backbutton'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
+import EditTemplate from './EditTemplate'
 
 const SellerTemplates = ({user, templates}) => {
 
@@ -105,11 +106,19 @@ const SellerTemplates = ({user, templates}) => {
                                                     >
                                                     <br />
 
-                                                    < Popup trigger ={<button className='btn'>
-                                                    <i className="fa-solid fa-pen" style={{color: "blue",fontSize: "15px"}}></i>
-                                                    </button>} position = "right center">
+                                                    < Popup 
+                                                    trigger ={<button className='btn'> <i className="fa-solid fa-pen" style={{color: "blue",fontSize: "15px"}}></i></button>} position = "right center"
+                                                    // increase size of popup & add close button
+                                                    modal
+                                                    nested
+                                                    // add close button
+                                                    closeOnDocumentClick={true}
+
+
+
+                                                    >
                                                         <div>
-                                                            Popup!
+                                                            <EditTemplate template={template} />
                                                         </div>
                                                     </Popup>
                                                     
