@@ -1,6 +1,10 @@
 import React,{useState,useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../css/SellerDashboard.css'
+import SideBar from './SideBar'
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css'
+import NewTemplate from './NewTemplate'
 
 
 
@@ -20,46 +24,17 @@ const SellerDashboard = ({ user, setUser }) => {
         getUser();
     }, [])
 
-    const createTemplate = () => {
-        navigate('/new_template')
-    }
-
     const viewTemplates = () => {
         navigate('/seller_templates')
     }
 
-    // logout
-    const handleLogOut = () => {
-        fetch('/logout', {
-            method: 'DELETE'
-        }).then(() => {
-            setUser(null)
-            navigate('/')
-        })
-    }
-
-   
+  
   return (
     <>
         {/* responsive side bar */}
 
         <div className="d-flex" id="wrapper">
-            {/* Sidebar */}
-            <div className="bg-light border-right" id="sidebar-wrapper">
-                <div className="sidebar-heading">
-                <i className="fa-brands fa-centercode"></i>
-                    <h4 style={{display:"inline-block"}}>Codearn</h4> 
-                    </div>
-                <div className="list-group list-group-flush">
-                    <a href="/dashboard" className="list-group-item list-group-item-action bg-light p-3">Dashboard</a>
-                    <a href="seller_templates" className="list-group-item list-group-item-action bg-light p-3">My Templates</a>
-                    <a href="/profile" className="list-group-item list-group-item-action bg-light p-3">Profile</a>
-                    <a href="guidelines" className="list-group-item list-group-item-action bg-light p-3">Guidelines</a>
-                    <a href="/payment" className="list-group-item list-group-item-action bg-light p-3">My Billing Information</a>
-                    <a href="/user_view" className="list-group-item list-group-item-action bg-light p-3">User View</a>
-                    <a href="#!" onClick={handleLogOut} className="list-group-item list-group-item-action bg-light p-3">Log Out</a>
-                </div>
-            </div>
+          < SideBar user={currentUser} setUser={setUser} />
             <div id="page-content-wrapper">
                 <nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                     <div className="container-fluid">
@@ -93,10 +68,16 @@ const SellerDashboard = ({ user, setUser }) => {
                             <div className="col-md-12">
                                 <div className="row">
                                     <div className="col-md-6">
-                                        <button onClick={createTemplate} className="btn btn-primary new-template">
-                                        <i className="fa-solid fa-square-plus"></i>
-                                        New Template
-                                        </button>
+                                        < Popup
+                                            trigger={<button className="btn btn-primary new-template">
+                                            <i className="fa-solid fa-square-plus"></i>
+                                            New Template
+                                            </button>}
+                                            modal
+                                            nested
+                                        >
+                                            < NewTemplate />
+                                        </Popup>
                                         {
                                            currentUser ? (
                                             currentUser.username === 'admin' ? (
@@ -128,10 +109,14 @@ const SellerDashboard = ({ user, setUser }) => {
                                         currentUser.templates.length === 0 ? (
                                             <>
                                             <p className="card-text">You have no templates yet.</p>
-                                            <button 
-                                            className="btn btn-light"
-                                            onClick={createTemplate}
-                                            >Create a template</button>
+                                            < Popup
+                                            trigger={<button className="btn btn-primary">
+                                            Create a template
+                                            </button>}
+                                            modal
+                                            nested >
+                                            < NewTemplate />
+                                        </Popup>
                                             </>
                                         ) : (
                                             currentUser.username === 'admin' ? (

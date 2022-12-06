@@ -1,12 +1,15 @@
 import React,{ useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css'
+import SellerExistingAccount from './SellerExistingAccount'
 
-const SellerNewAccount = ({user, setUser}) => {
+const SellerNewAccount = () => {
 
     const navigate = useNavigate()
 
     const [errors, setErrors] = useState([])
-    const [message, setMessage] = useState('')
+   
 
 
     const [formData, setFormData] = useState({
@@ -38,9 +41,8 @@ const SellerNewAccount = ({user, setUser}) => {
         .then(r => {
             if (r.ok) {
                 r.json().then(user => {
-                    setUser(user)
-                    setMessage(user.message)
-                    navigate('/home')
+                    console.log("user",user)
+                    navigate('/dashboard')
                 })
             } else {
                 r.json().then(err => {
@@ -50,28 +52,20 @@ const SellerNewAccount = ({user, setUser}) => {
         })
     }
 
-    const handleLogInAsSeller = () => {
-        navigate('/seller_existing_account')
-    }
-
-
-
-
 
   return (
     <>
-     <div className="container">
+     <div style={{marginTop: '20px'}} className="container">
         <div className="row">
             <div className="col-md-6 mx-auto">
                 <div id="first">
                     <div className="myform form ">
                         <div className="logo mb-3">
                             <div className="col-md-12 text-center">
-                                <h1>Become A Contributor</h1>
-                                {message}
+                                <h4>Become A Contributor</h4>
                             </div>
                         </div>
-                        <form onSubmit={handleSubmit}>
+                        <form style={{ border: '1px solid #ccc', padding:"30px"}} onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="firstName">First Name</label>
                                 <input
@@ -157,7 +151,7 @@ const SellerNewAccount = ({user, setUser}) => {
                                 />
                             </div>
                             <div className="col-md-12 text-center ">
-                                <button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm">Sign Up</button>
+                                <button type="submit" className="log-in btn btn-block mybtn btn-primary tx-tfm">Sign Up</button>
                             </div>
                                 {
                                     errors ? (
@@ -173,9 +167,15 @@ const SellerNewAccount = ({user, setUser}) => {
                                     
                                 }
 
-                            <div  div className="col-md-12 text-center ">
+                            <div  div className="log-in-sign-up col-md-12 text-center ">
                                 Already have an account ? &nbsp;
-                                <button onClick={handleLogInAsSeller} type="submit" className=" btn btn-block mybtn btn-primary tx-tfm">Sign In</button>
+                                <Popup
+                                trigger={<button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm">Sign In</button>}
+                                modal
+                                nested
+                                >
+                                <SellerExistingAccount />
+                                </Popup>
                             </div>
 
 

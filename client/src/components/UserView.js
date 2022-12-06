@@ -1,7 +1,6 @@
 import React,{  useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import TemplateCard from './TemplateCard'
-import Brand from './Brand'
 
 const UserView = ({ user, setUser, templates }) => {
 

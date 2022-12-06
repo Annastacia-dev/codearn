@@ -147,7 +147,20 @@ const EditTemplate = ({ template }) => {
             onChange={handleChange}
             />
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <div style={{marginTop: "15px"}} className="row">
+            <div className="col-6">
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </div>
+            <div className="col-6">
+            <button 
+            type="button" className="btn btn-danger"
+            data-dismiss="modal"
+            onClick = {() => {
+                window.location.reload()
+            }}
+            >Close</button>
+            </div>
+        </div>
     </form>        
     </>
   )

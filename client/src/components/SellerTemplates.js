@@ -6,6 +6,7 @@ import Backbutton from './Backbutton'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import EditTemplate from './EditTemplate'
+import NewTemplate from './NewTemplate'
 
 const SellerTemplates = ({user, templates}) => {
 
@@ -33,6 +34,15 @@ const SellerTemplates = ({user, templates}) => {
         <div className="row">
             <div className="col-md-12">
                 <h2 style={{textAlign: "center", marginTop :"20px"}}>
+                                        < Popup
+                                            trigger={<button className="btn btn-primary new-template">
+                                            <i className="fa-solid fa-square-plus"></i>
+                                            New Template
+                                            </button>}
+                                            modal
+                                            nested >
+                                        < NewTemplate />
+                                        </Popup>
                 {
                     user ? user.username === 'admin' ? 'All Templates' : 'My Templates' : null
                 }
@@ -107,16 +117,7 @@ const SellerTemplates = ({user, templates}) => {
                                                     <br />
 
                                                     < Popup 
-                                                    trigger ={<button className='btn'> <i className="fa-solid fa-pen" style={{color: "blue",fontSize: "15px"}}></i></button>} position = "right center"
-                                                    // increase size of popup & add close button
-                                                    modal
-                                                    nested
-                                                    // add close button
-                                                    closeOnDocumentClick={true}
-
-
-
-                                                    >
+                                                    trigger ={<button className='btn'> <i className="fa-solid fa-pen" style={{color: "blue",fontSize: "15px"}}></i></button>} position = "right center" modal nested closeOnDocumentClick={true} >
                                                         <div>
                                                             <EditTemplate template={template} />
                                                         </div>

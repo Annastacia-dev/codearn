@@ -34,8 +34,8 @@ const NewTemplate = ({user}) => {
                 live_site: liveSite,
                 github_link: githubLink,
                 features,
-                premium: user.username === 'admin' ? false : true,
-                user_id: user.id
+                premium: user ? user.username === 'admin' ? false : true : false,
+                user_id: user ? user.id : null
         })
         })
         .then( r => {
@@ -56,6 +56,17 @@ const NewTemplate = ({user}) => {
                         window.location.reload()
                     }
                     , 3000)
+                    // clear form
+                    setTitle('')
+                    setDescription('')
+                    setCategory('')
+                    setTechnologies('')
+                    setImageUrl('')
+                    setLiveSite('')
+                    setGithubLink('')
+                    setFeatures('')
+                    // refresh page
+                    window.location.reload()
                 })
             } else {
                 r.json().then(err => setErrors(err.errors))
@@ -69,8 +80,6 @@ const NewTemplate = ({user}) => {
     
     <div className="container">
         <div className="text-center">
-        <i className="fa-brands fa-centercode"></i>
-        <h4 style={{display:"inline-block"}}>Codearn</h4> 
         < ToastContainer
             position="top-center"
             autoClose={3000}
@@ -141,7 +150,19 @@ const NewTemplate = ({user}) => {
                                     ) : null
                                     
                                 }
-            <button type="submit" className="btn btn-primary">Upload template</button>
+                                <div style={{marginTop: "15px"}} className="row">
+                                    <div className="col">
+                                        <button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm">Upload template</button>
+                                    </div>
+                                    <div className="col">
+                                        <button type="submit" className=" btn btn-block mybtn btn-danger tx-tfm"
+                                        onClick={() => {window.location.reload()}}
+                                        >Close</button>
+                                    </div>
+
+                                </div>
+            
+
           
         </form>
         </div>

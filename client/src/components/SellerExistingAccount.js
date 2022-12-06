@@ -1,7 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css'
+import SellerNewAccount from './SellerNewAccount'
 
-const SellerExistingAccount = ({ user, setUser }) => {
+const SellerExistingAccount = () => {
 
     const navigate = useNavigate()
 
@@ -26,7 +29,7 @@ const SellerExistingAccount = ({ user, setUser }) => {
             .then(r => {
                 if (r.ok) {
                     r.json().then(user => {
-                        setUser(user)
+                        console.log("user",user)
                         navigate('/dashboard')
                         window.location.reload()
     
@@ -38,21 +41,15 @@ const SellerExistingAccount = ({ user, setUser }) => {
                 }
             })
         }
-
-        const handleSignUpAsSeller = () => {
-            navigate('/seller_new_account')
-        }
-
-
   return (
     <div>
-        <div className="container">
+        <div className="log-in container">
             <div className="row">
                 <div className="col-md-6 mx-auto">
                     <div className="myform form ">
                         <div className="logo mb-3">
                             <div className="col-md-12 text-center">
-                                <h1>Login</h1>
+                                <h2>Login</h2>
                             </div>
                         </div>
                         <form 
@@ -72,6 +69,7 @@ const SellerExistingAccount = ({ user, setUser }) => {
                                 placeholder="Enter email"
                                 autoComplete='email'
                                 value={email}
+                                required
                                 onChange={(e) => setEmail(e.target.value)}
                                  />
                             </div>
@@ -86,6 +84,7 @@ const SellerExistingAccount = ({ user, setUser }) => {
                                 placeholder="Enter Password"
                                 autoComplete='current-password'
                                 value={password}
+                                required
                                 onChange={(e) => setPassword(e.target.value)}
                                  />
                             </div>
@@ -103,11 +102,18 @@ const SellerExistingAccount = ({ user, setUser }) => {
 
                             </div>
                             <div className="col-md-12 text-center ">
-                                <button type="submit" className=" btn btn-block mybtn btn-primary tx-tfm">Log In</button>
+                                <button type="submit" className="log-in btn btn-block mybtn btn-primary tx-tfm">Log In</button>
                             </div>
-                            <div className="form-group">
+                            <div className="sign-up-here form-group">
                                 <p className="text-center">Don't have account? &nbsp;
-                                <button className=" btn btn-block mybtn btn-primary tx-tfm"  onClick={handleSignUpAsSeller}>Sign up here</button></p>
+                                <Popup
+                                trigger={<button className="btn btn-block mybtn btn-primary tx-tfm">Sign up here</button>}
+                                modal
+                                nested
+                                >
+                                 < SellerNewAccount />   
+                                </Popup>
+                                </p>
                             </div>
                         </form>
                     </div>
