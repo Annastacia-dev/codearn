@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :mpesas
   resources :reviews
   resources :templates
   # get 'password_resets/new'
