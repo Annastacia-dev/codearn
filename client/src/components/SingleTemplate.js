@@ -8,13 +8,11 @@ import { makeRatingStars } from '../utils/stars'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import NewReview from './NewReview'
-import { useNavigate } from 'react-router-dom'
+import PremiumPay from './PremiumPay'
 
 
 
 const SingleTemplate = ({templates}) => {
-
-  const navigate = useNavigate()
 
   const [currentUser, setCurrentUser] = useState([])
 
@@ -118,9 +116,19 @@ const SingleTemplate = ({templates}) => {
                             <a href={github_link} target="_blank" rel="noreferrer" className="btn btn-primary">View Code Source</a>
 
                           ) : (
-                            <button onClick={() => navigate('/premium_pay')} className='btn btn-primary'>
-                              Go Premium
-                            </button>
+                           <>
+                          <Popup
+                          trigger={<button className="btn btn-primary">
+                          < i className="fas fa-crown"></i>
+                          Go Premium
+                          </button> }
+                          modal
+                          nested
+                          contentStyle={{width: "50rem", height: "40rem"}}
+                          >
+                            <PremiumPay />
+                          </Popup>
+                           </>
                           )
                         )
                       ) :(null)

@@ -1,4 +1,6 @@
 import React from 'react'
+import Brand from './Brand'
+
 
 
 const PremiumPay = () => {
@@ -7,13 +9,14 @@ const PremiumPay = () => {
 
     {/* Bootstrap */}
 
-    <div className="log-in container">
+    <div style={{marginTop: "40px"}} className=" container">
         <div className="row">
             <div className="col-md-6 mx-auto">
                 <div id="first">
                     <div className="myform form ">
                         <div className="logo mb-3">
                             <div className="col-md-12 text-center">
+                                <Brand/>
                                 <h3>Pay for Premium</h3>
                             </div>
                             </div>
@@ -31,7 +34,7 @@ const PremiumPay = () => {
                                 </p>
                             </div>
 
-                            <form>
+                            <form style={{padding: "30px", border: "1px solid #ccc", borderRadius: "5px" }}>
                                 <div className="form-group">
                                     <label htmlFor="exampleInputEmail1">Phone Number</label>
                                     <input

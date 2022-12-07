@@ -1,11 +1,11 @@
 import React,{  useState } from 'react'
 import NavBar from './NavBar'
 import TemplateCard from './TemplateCard'
-import { useNavigate } from 'react-router-dom'
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css'
+import PremiumPay from './PremiumPay'
 
 const Home = ({ user, setUser, templates }) => {
-
-  const navigate = useNavigate()
 
   const [search, setSearch] = useState('')
 
@@ -22,10 +22,21 @@ const Home = ({ user, setUser, templates }) => {
           {
             
           user ? user.premium ? null :
-           <button onClick={() => navigate('/premium_pay')} className="btn btn-primary banner">
+           (
+            <>
+            <Popup
+            trigger={<button className="btn btn-primary banner">
             < i className="fas fa-star"></i>
             Upgrade to premium to access all templates
-            </button> 
+            </button> }
+            modal
+            nested
+            contentStyle={{width: "50rem", height: "40rem"}}
+            >
+              <PremiumPay />
+            </Popup>
+            </>
+           )
            : null
          }
             <div style={{margin: "auto", marginBottom:"2rem"}} className="col-md-6">
