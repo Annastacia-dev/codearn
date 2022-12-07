@@ -17,13 +17,15 @@ class UsersController < ApplicationController
         render json: @current_user, status: :ok
     end
 
+    def destroy
+        @current_user.destroy
+        render json: { message: "User deleted" }, status: :ok
+    end
+
     private 
 
     def user_params
-        params.permit(
-            :first_name, :last_name, :username, :email, :password, :password_confirmation,
-            :remember_me, :premium, :seller
-            )
+        params.permit(:first_name, :last_name, :username, :email, :password, :password_confirmation,:remember_me, :premium, :seller, :profile_picture)
     end
 
 

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/profile", to: "users#profile"
   patch "/profile", to: "users#update"
+  delete "/profile", to: "users#destroy"
 
   resources :password_resets, only: [:create, :update]
 

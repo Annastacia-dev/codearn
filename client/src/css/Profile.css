@@ -1,0 +1,22 @@
+.profile .img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile .img img{
+    width: 100%;
+    height: 100%;
+}
+.profile .card-body{
+    text-align: center;
+}
+
+.notif{
+    margin-top: 90px;
+}
