@@ -26,11 +26,9 @@ const NewReview = ({template, currentUser}) => {
         r.json().then(data => {
             if (r.ok) {
                 console.log("data",data)
-                // clear form
                 setRating(1)
                 setComment("")
-                // refresh page
-                // window.location.reload()
+                window.location.reload()
             } else {
                 setErrors(data.errors)
             }

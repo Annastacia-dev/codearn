@@ -107,6 +107,7 @@ function notify(){
                                 placeholder="Enter email"
                                 autoComplete='email'
                                 value={email}
+                                required
                                 onChange={(e) => setEmail(e.target.value)}
                                  />
                             </div>
@@ -121,6 +122,7 @@ function notify(){
                                 placeholder="Enter Password"
                                 autoComplete='current-password'
                                 value={password}
+                                required
                                 onChange={(e) => setPassword(e.target.value)}
                                  />
                             </div>

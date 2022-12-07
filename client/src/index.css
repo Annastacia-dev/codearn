@@ -45,4 +45,12 @@ body{
   margin-bottom: 30px;
 }
 
+.error{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
 

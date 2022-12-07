@@ -1,8 +1,11 @@
 import React,{  useState } from 'react'
 import NavBar from './NavBar'
 import TemplateCard from './TemplateCard'
+import { useNavigate } from 'react-router-dom'
 
 const Home = ({ user, setUser, templates }) => {
+
+  const navigate = useNavigate()
 
   const [search, setSearch] = useState('')
 
@@ -19,7 +22,7 @@ const Home = ({ user, setUser, templates }) => {
           {
             
           user ? user.premium ? null :
-           <button className="btn btn-primary banner">
+           <button onClick={() => navigate('/premium_pay')} className="btn btn-primary banner">
             < i className="fas fa-star"></i>
             Upgrade to premium to access all templates
             </button> 

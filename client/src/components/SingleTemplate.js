@@ -8,10 +8,13 @@ import { makeRatingStars } from '../utils/stars'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import NewReview from './NewReview'
+import { useNavigate } from 'react-router-dom'
 
 
 
 const SingleTemplate = ({templates}) => {
+
+  const navigate = useNavigate()
 
   const [currentUser, setCurrentUser] = useState([])
 
@@ -115,7 +118,7 @@ const SingleTemplate = ({templates}) => {
                             <a href={github_link} target="_blank" rel="noreferrer" className="btn btn-primary">View Code Source</a>
 
                           ) : (
-                            <button className='btn btn-primary'>
+                            <button onClick={() => navigate('/premium_pay')} className='btn btn-primary'>
                               Go Premium
                             </button>
                           )

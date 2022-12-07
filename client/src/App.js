@@ -12,6 +12,8 @@ import SellerDashboard from "./components/SellerDashboard";
 import UserView from "./components/UserView";
 import SellerTemplates from "./components/SellerTemplates";
 import Profile from "./components/Profile";
+import Error from "./components/Error";
+import PremiumPay from "./components/PremiumPay";
 
 function App() {
 
@@ -64,6 +66,8 @@ useEffect(() => {
         <Route path="/user_view" element={<UserView templates={templates} user={user} setUser={setUser} />} />
         <Route path="/seller_templates" element={<SellerTemplates templates={templates} user={user} setUser={setUser} />} />
         <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
+        <Route path="/premium_pay" element={<PremiumPay user={user} setUser={setUser} />} />
+        <Route path="*" element={<Error />} />
       </Routes>
       
     </div>
