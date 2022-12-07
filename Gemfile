@@ -34,12 +34,13 @@ gem 'faker'
 
 gem 'active_model_serializers'
 
-gem 'rack-cors'
-
 gem 'bcrypt'
 
 gem 'foreman'
 
-gem 'rest-client'
+gem 'rest-client', '~> 2.1'
+
+gem 'rack-cors'
+
 
 

@@ -200,7 +200,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4)
-  rest-client
+  rest-client (~> 2.1)
   spring
   tzinfo-data
 

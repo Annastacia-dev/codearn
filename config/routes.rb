@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :mpesas
   resources :reviews
   resources :templates
+  resources :password_resets, only: [:create, :update]
   # get 'password_resets/new'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   patch "/profile", to: "users#update"
   delete "/profile", to: "users#destroy"
 
-  resources :password_resets, only: [:create, :update]
+  post "/stkpush", to: "mpesas#stkpush"
+  post "polling_payment", to: "mpesas#polling_payment"
+
+  
 
 end
