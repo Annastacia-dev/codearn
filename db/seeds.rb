@@ -17,8 +17,7 @@ User.create!(
     email: "admin@gmail.com",
     password: "@Dmin321",
     password_confirmation: "@Dmin321",
-    seller: true
-    premium: true
+    seller: true,
 )
 
 User.create!(
