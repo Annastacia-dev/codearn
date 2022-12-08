@@ -13,6 +13,7 @@ import UserView from "./components/UserView";
 import SellerTemplates from "./components/SellerTemplates";
 import Profile from "./components/Profile";
 import Error from "./components/Error";
+import Guidelines from "./components/Guidelines";
 
 
 function App() {
@@ -66,6 +67,7 @@ useEffect(() => {
         <Route path="/user_view" element={<UserView templates={templates} user={user} setUser={setUser} />} />
         <Route path="/seller_templates" element={<SellerTemplates templates={templates} user={user} setUser={setUser} />} />
         <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
+        <Route path="/guidelines" element={<Guidelines />} />
         <Route path="*" element={<Error />} />
       </Routes>
       
