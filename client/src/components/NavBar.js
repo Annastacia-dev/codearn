@@ -96,23 +96,27 @@ const NavBar = ({ user, setUser }) => {
                       <div className="collapse navbar-collapse" id="navbarResponsive">
                           <ul className="navbar-nav ms-auto my-2 my-lg-0">
                               <li className="nav-item dropdown">
-                                  <li  className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Stacks</li>
+                                  <option  className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Stacks</option>
                                   <div className="dropdown-menu">
-                                      <li   className="dropdown-item">HTML</li>
-                                      <li   className="dropdown-item">React</li>
-                                      <li   className="dropdown-item">Vue</li>
-                                      <li   className="dropdown-item">Angular</li>
+                                      <option value="html" className="dropdown-item">HTML</option>
+                                      <option value="react" className="dropdown-item">React</option>
+                                      <option value="vue" className="dropdown-item">Vue</option>
+                                      <option value="angular" className="dropdown-item">Angular</option>
+                                      <option value="bootstrap" className="dropdown-item">Bootstrap</option>
+                                      <option value="tailwind" className="dropdown-item">Tailwind</option>
+
                                   </div>
                                 </li>
                                 <li className="nav-item dropdown">
-                                  <a href="/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Templates</a>
+                                  <option className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Templates</option>
                                   <div className="dropdown-menu">
-                                      <li className="dropdown-item">Card</li>
-                                      <li  className="dropdown-item">Dashboard</li>
-                                      <li  className="dropdown-item">Headers</li>
-                                      <li  className="dropdown-item">Landing Page</li>
-                                      <li className="dropdown-item">NavBar</li>
-                                      
+                                      <option value="card" className="dropdown-item">Card</option>
+                                      <option value="dashboard"  className="dropdown-item">Dashboard</option>
+                                      <option value="headers"  className="dropdown-item">Headers</option>
+                                      <option value="landingpage"  className="dropdown-item">Landing Page</option>
+                                      <option value="navbar" className="dropdown-item">NavBar</option>
+                                      <option value="table" className="dropdown-item">Table</option>
+                                      <option value="button" className="dropdown-item">Button</option>   
                                   </div>
                                 </li>
                           </ul>

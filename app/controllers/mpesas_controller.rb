@@ -1,4 +1,6 @@
 class MpesasController < ApplicationController
+
+    skip_before_action :authorize, only: [:stkpush, :stkquery]
     
     require 'rest-client'
 
@@ -51,7 +53,7 @@ class MpesasController < ApplicationController
 
     # polling payment
 
-    def polling_payment
+    def stkquery
         url = "https://sandbox.safaricom.co.ke/mpesa/stkpushquery/v1/query"
         timestamp = "#{Time.now.strftime "%Y%m%d%H%M%S"}"
         business_short_code = ENV["MPESA_SHORTCODE"]
@@ -118,6 +120,7 @@ class MpesasController < ApplicationController
         AccessToken.create!(token: token)
         token
     end
+
 
 
 end

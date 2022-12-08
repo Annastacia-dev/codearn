@@ -31,9 +31,9 @@ const Home = ({ user, setUser, templates }) => {
             </button> }
             modal
             nested
-            contentStyle={{width: "50rem", height: "40rem"}}
+            contentStyle={{width: "50rem", height: "50rem"}}
             >
-              <PremiumPay />
+              <PremiumPay user={user} />
             </Popup>
             </>
            )
