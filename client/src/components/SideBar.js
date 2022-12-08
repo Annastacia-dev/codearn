@@ -37,13 +37,6 @@ const SideBar = ({ user, setUser }) => {
                     
                     <a href="/profile" className="list-group-item list-group-item-action bg-light p-3">Profile</a>
                     <a href="guidelines" className="list-group-item list-group-item-action bg-light p-3">Guidelines</a>
-                    {
-                        user && user.username === 'admin' ? (
-                            null
-                        ) : (
-                            <a href="/payment" className="list-group-item list-group-item-action bg-light p-3">My Billing Information</a>
-                        )
-                    }
                     <a href="/user_view" className="list-group-item list-group-item-action bg-light p-3">User View</a>
                     <button onClick={handleLogOut} className="list-group-item list-group-item-action bg-light p-3">Log Out</button>
                 </div>

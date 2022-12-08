@@ -18,6 +18,7 @@ User.create!(
     password: "@Dmin321",
     password_confirmation: "@Dmin321",
     seller: true
+    premium: true
 )
 
 User.create!(
@@ -57,8 +58,7 @@ Template.create!(
     github_link:"https://github.com/evgensharyy/nglp-angular-material-landing-page",
     category: "Landing Page",
     technologies: "Angular, Bootstrap",
-    premium: true,
-    price: 100
+    user_id: 2
 
 )
 
@@ -71,8 +71,8 @@ Template.create!(
     github_link:"https://github.com/flatlogic/angular-material-dashboard",
     category: "Dashboard",
     technologies: "Material UI, Bootstrap, Vue",
-    premium: true,
-    price: 20
+    user_id: 2
+   
 )
 
 Template.create!(
@@ -83,7 +83,8 @@ Template.create!(
     features: "True Material Design Interface, Web Components , Powerful, Lightweight Plugins & Functional Tests",
     category: "Card",
     technologies: "HTML, CSS, JavaScript",
-    premium: false
+    user_id: 1
+    
 )
 
 puts "Done!"
