@@ -63,6 +63,9 @@ password: @Dmin321
 - An admin can add a template by clicking on the add template button on their dashboard.
 - An admin can view all templates and edit or delete any template.
 
+- All users can edit their profile.
+- Users can delete their accounts.
+
 #### Templates
 - You can view the details of a template by clicking on the template card.
 - You can view the source code of a template by clicking on the view source code button, if it's free you can view the source code but if it's premium you will be prompted to upgrade to a premium account.
@@ -78,8 +81,8 @@ password: @Dmin321
 - Run `rails db:create`
 - Run `rails db:migrate`
 - Run `rails db:seed`
-- Run npm install --prefix client
-- Run foreman start -f Procfile
+- Run `npm install --prefix client`
+- Run `foreman start -f Procfile`
 
 
 
