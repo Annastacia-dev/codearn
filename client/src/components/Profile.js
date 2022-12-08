@@ -224,7 +224,7 @@ const handleDelete = async (e) => {
                 </>
                 {/* Delete account */}
                 <>
-                <button onClick={handleDelete } className="btn btn-danger">Delete Account</button>
+                <button onClick={handleDelete} className="btn btn-danger">Delete Account</button>
                 </>
             </div>
             <div className="col-lg-4 col-md-6 mb-4">
