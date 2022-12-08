@@ -83,7 +83,4 @@ test:
 #
 production:
   <<: *default
-  # database: codearn
-  # username: codearn
-  # password: <%= ENV["CODEARN_DATABASE_PASSWORD"] %>
   url: <%= ENV["DATABASE_URL"] %>
