@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   post "/stkquery", to: "mpesas#stkquery"
 
   
-  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+  # get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
   
 
