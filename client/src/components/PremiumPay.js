@@ -15,7 +15,7 @@ const [phoneNumber, setPhoneNumber] = useState('')
 const [checkoutRequestID, setCheckoutRequestID] = useState('')
 
 const handleMpesaStkPush = () => {
-    fetch('https://2349-105-160-71-115.in.ngrok.io/stkpush', {
+    fetch('https://codearn.onrender.com/stkpush', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ const handleMpesaQuery = () => {
     setCheckoutRequestID(checkoutRequestID)
     console.log("checkoutRequestID",checkoutRequestID)
     
-    fetch('https://2349-105-160-71-115.in.ngrok.io/stkquery', {
+    fetch('https://codearn.onrender.com/stkquery', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

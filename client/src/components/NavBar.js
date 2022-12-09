@@ -140,7 +140,7 @@ const NavBar = ({ user, setUser }) => {
                                   className="btn btn-primary sell-content"
                                   onClick={handleSellContent}
                                   >Sell Content</button>
-                                  <a href="/profile" className="btn btn-primary sell-content">My profile</a>  
+                                  <a href="/user_profile" className="btn btn-primary sell-content">My profile</a>  
                               </li>
                               <li className="nav-item">
                                   <button onClick={handleLogOut} className="btn btn-primary logout">Log Out</button>

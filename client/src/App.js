@@ -66,7 +66,7 @@ useEffect(() => {
         <Route path="/sell_content" element={<SellContent user={user}/>} />
         <Route path="/user_view" element={<UserView templates={templates} user={user} setUser={setUser} />} />
         <Route path="/seller_templates" element={<SellerTemplates templates={templates} user={user} setUser={setUser} />} />
-        <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
+        <Route path="/user_profile" element={<Profile user={user} setUser={setUser} />} />
         <Route path="/guidelines" element={<Guidelines />} />
         <Route path="*" element={<Error />} />
       </Routes>
