@@ -62,7 +62,7 @@ useEffect(() => {
         <Route path="/signup" element={<SignUp setUser={setUser} />} />
         <Route path="/reset_password" element={<ResetPassword />} />
         <Route path="/new_password" element={<NewPassword />} />
-        <Route path="/templates/:id" element={<SingleTemplate templates={templates} user={user} setUser={setUser} />} />
+        <Route path="/singletemplate/:id" element={<SingleTemplate templates={templates} user={user} setUser={setUser} />} />
         <Route path="/sell_content" element={<SellContent user={user}/>} />
         <Route path="/user_view" element={<UserView templates={templates} user={user} setUser={setUser} />} />
         <Route path="/seller_templates" element={<SellerTemplates templates={templates} user={user} setUser={setUser} />} />
