@@ -10,9 +10,6 @@ cp -a client/build/. public/
 # builds the back end code
 bundle install
 bundle exec rake db:migrate
-# bundle exec rake db:seed # if you have seed data, run this command for the initial deploy only
-# run SQL command to delete the user with username admin in the deployed database
-SQL="DELETE FROM users WHERE username='admin';"
-bundle exec rake db:execute_sql["${SQL}"]
+# bundle exec rake db:seed 
 
 
