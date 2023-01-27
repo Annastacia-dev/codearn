@@ -76,7 +76,7 @@ const SellerDashboard = ({ user, setUser }) => {
                                             modal
                                             nested
                                         >
-                                            < NewTemplate />
+                                            < NewTemplate user={user} />
                                         </Popup>
                                         {
                                            currentUser ? (

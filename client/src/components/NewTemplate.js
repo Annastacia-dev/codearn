@@ -16,6 +16,8 @@ const NewTemplate = ({user}) => {
     const [githubLink, setGithubLink] = useState('')
     const [features, setFeatures] = useState('')
     const [errors, setErrors] = useState([])
+
+    console.log (user)
     
 
     const handleSubmit = (e) => {

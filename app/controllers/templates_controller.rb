@@ -1,4 +1,6 @@
 class TemplatesController < ApplicationController
+
+    wrap_parameters :format => [:json]
     
 
     def index 
@@ -13,11 +15,7 @@ class TemplatesController < ApplicationController
 
     def create
         @template = Template.create!(template_params)
-        if @template.save
-            render json: @template, status: :created
-        else
-            render json: { errors: @template.errors.full_messages }, status: :unprocessable_entity
-        end
+        render json: @template, status: :created   
     end
 
     def update
