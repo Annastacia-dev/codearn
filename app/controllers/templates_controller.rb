@@ -12,8 +12,7 @@ class TemplatesController < ApplicationController
     end
 
     def create
-        @template = Template.new(template_params)
-        @template.user = @current_user
+        @template = Template.create!(template_params)
         if @template.save
             render json: @template, status: :created
         else
