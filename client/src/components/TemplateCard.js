@@ -4,6 +4,8 @@ import '../css/TemplateCard.css'
 
 const TemplateCard = ({ template }) => {
 
+    console.log(template.premium)
+
     const {id,image_url, title,category, technologies} = template
   return (
     <>
@@ -15,7 +17,6 @@ const TemplateCard = ({ template }) => {
                     template.premium ? (
                         <div className="premium">
                             <i className="fa-solid fa-crown"></i>
-                            <p>premium</p>
                         </div>
                     ) : (
                         null
