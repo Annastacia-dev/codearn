@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
     def create
         @review = Review.create!(review_params)
         render json: @review, status: :created
+    end
     
     def destroy
         @review = Review.find(params[:id])
