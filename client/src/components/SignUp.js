@@ -203,6 +203,7 @@ const SignUp = ({ setUser, setShowLogIn }) => {
                                 >
                                     Login
                                 </button>
+                                
                                 </p>
                             </div>
 
