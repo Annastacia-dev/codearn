@@ -10,7 +10,7 @@ import NewTemplate from './NewTemplate'
 
 const SellerTemplates = ({user, templates}) => {
 
-    const sellerTemplates = user ? user.username === 'admin' ? templates : user.templates : null
+    const sellerTemplates = user ? user.username === 'superadmin' ? templates : user.templates : null
 
 
 
@@ -103,7 +103,7 @@ const SellerTemplates = ({user, templates}) => {
                                                      ): 'Codearn'
                                             }
                                         </small>
-                                        {/* admin can edit and delete */}
+                                        {/* superadmin can edit and delete */}
                                         {
                                             user ? (
                                                 user.username === 'superadmin' ? (

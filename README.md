@@ -56,8 +56,8 @@ password: #David45
 
 **Sample Admin Account**
 ```
-email : admin@gmail.com
-password: @Dmin321
+email : superadmin@gmail.com
+password: @SuperAdmin11
 
 ```
 

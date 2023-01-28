@@ -36,7 +36,7 @@ const NewTemplate = ({user}) => {
                 live_site: liveSite,
                 github_link: githubLink,
                 features,
-                premium: user ? user.username === 'admin' ? false : true : false,
+                premium: user ? user.username === 'superadmin' ? false : true : false,
                 user_id: user ? user.id : null
         })
         })
