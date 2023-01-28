@@ -2,7 +2,7 @@ import React,{  useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import TemplateCard from './TemplateCard'
 
-const UserView = ({ user, setUser, templates }) => {
+const UserView = ({ user, templates }) => {
 
     const navigate = useNavigate()
 
