@@ -112,7 +112,7 @@ const SingleTemplate = ({templates}) => {
                         template.user.id === currentUser.id ? (
                           <a href={github_link} target="_blank" rel="noreferrer" className="btn btn-primary">View Code Source</a>
                         ) : (
-                          template.user.username === "admin" ? (
+                          template.user.username === "superadmin" ? (
                             <a href={github_link} target="_blank" rel="noreferrer" className="btn btn-primary">View Code Source</a>
 
                           ) : (
@@ -179,7 +179,7 @@ const SingleTemplate = ({templates}) => {
                         <a href="/profile">You</a>
                       ) : (
                         <a href={`/user/${template.user.id}`}>{
-                          template.user.username === "admin" ? (
+                          template.user.username === "superadmin" ? (
                             "Codearn"
                           ) : (
                             template.user.username

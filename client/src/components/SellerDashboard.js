@@ -80,7 +80,7 @@ const SellerDashboard = ({ user, setUser }) => {
                                         </Popup>
                                         {
                                            currentUser ? (
-                                            currentUser.username === 'admin' ? (
+                                            currentUser.username === 'superadmin' ? (
                                                 <button onClick={viewTemplates} className="btn btn-primary"
                                                 style={{marginBottom: "20px"}}
                                                 >
@@ -119,7 +119,7 @@ const SellerDashboard = ({ user, setUser }) => {
                                         </Popup>
                                             </>
                                         ) : (
-                                            currentUser.username === 'admin' ? (
+                                            currentUser.username === 'superadmin' ? (
                                                 null
                                             ) :(
                                                 <button 

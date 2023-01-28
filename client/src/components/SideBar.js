@@ -28,7 +28,7 @@ const SideBar = ({ user, setUser }) => {
                 <div className="list-group list-group-flush">
                     <a href="/dashboard" className="list-group-item list-group-item-action bg-light p-3">Dashboard</a>
                     {
-                        user && user.username === 'admin' ? (
+                        user && user.username === 'superadmin' ? (
                             <a href="seller_templates" className="list-group-item list-group-item-action bg-light p-3">All templates</a>
                         ) : (
                             <a href="seller_templates" className="list-group-item list-group-item-action bg-light p-3">My Templates</a>

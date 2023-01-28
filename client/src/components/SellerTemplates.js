@@ -44,7 +44,7 @@ const SellerTemplates = ({user, templates}) => {
                                         < NewTemplate />
                                         </Popup>
                 {
-                    user ? user.username === 'admin' ? 'All Templates' : 'My Templates' : null
+                    user ? user.username === 'superadmin' ? 'All Templates' : 'My Templates' : null
                 }
                 </h2>
                 <div className="row">
@@ -99,14 +99,14 @@ const SellerTemplates = ({user, templates}) => {
                                         <small>
                                             Created by {
                                                 template.user ?( 
-                                                    template.user.username === "admin" ? "Codearn" : template.user.first_name + " " + template.user.last_name
+                                                    template.user.username === "superadmin" ? "Codearn" : template.user.first_name + " " + template.user.last_name
                                                      ): 'Codearn'
                                             }
                                         </small>
                                         {/* admin can edit and delete */}
                                         {
                                             user ? (
-                                                user.username === 'admin' ? (
+                                                user.username === 'superadmin' ? (
                                                     <>
                                                     <div 
                                                     className="edit-button"
